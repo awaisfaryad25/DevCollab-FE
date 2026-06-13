@@ -23,7 +23,7 @@ export function ProtectedLayoutClient({
 
         {/* Navbar */}
         <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b bg-sidebar px-4">
-          <div className="flex items-center gap-3">
+          <div className="flex items-center justify-between gap-3">
             <ModeToggle />
             <UserNav />
           </div>
