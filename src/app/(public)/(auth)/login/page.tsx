@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff, Loader2 } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import BackgroundGradient from "@/app/ui/background-gradient";
+import Input from "@/app/ui/Input";
 
 export default function LoginPage() {
   const [show, setShow] = useState(false);
@@ -28,10 +29,10 @@ export default function LoginPage() {
     <div className="relative flex min-h-screen items-center justify-center">
       <BackgroundGradient />
       {/* Card */}
-      <div className="rounded-2xl border border-border bg-background p-4 shadow-sm w-full max-w-sm mx-auto">
+      <div className="p-4 w-full max-w-sm mx-auto">
         <div className="mb-4 ">
-          <h1 className="text-xl font-semibold text-foreground">
-            Welcome back
+          <h1 className="text-2xl lg:text-3xl font-semibold text-foreground">
+            Welcome back!
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
             Log in to your DevCollab account
@@ -39,63 +40,26 @@ export default function LoginPage() {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label
-              htmlFor="email"
-              className="mb-1.5 block text-sm font-medium text-foreground"
-            >
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              autoComplete="email"
-              required
-              placeholder="you@example.com"
-              className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-1"
+        <form onSubmit={handleSubmit} className="space-y-2">
+          <div className="space-y-4">
+            <Input label="Email" className="focus:ring-0! border-violet-500!" type="email" placeholder="you@example.com" leftIcon={<Mail className="size-4" />} required />
+            <Input
+              label="Password"
+              type={show ? "text" : "password"}
+              placeholder="••••••••"
+              className="focus:ring-0! border-violet-500!"
+              leftIcon={<Lock className="size-4" />}
+              rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
+              onRightIconClick={() => setShow(!show)}
             />
           </div>
-
-          <div>
-            <label
-              htmlFor="password"
-              className="text-sm font-medium text-foreground"
-            >
-              Password
-            </label>
-            <div className="relative">
-              <input
-                id="password"
-                type={show ? "text" : "password"}
-                autoComplete="current-password"
-                required
-                placeholder="••••••••"
-                className="w-full rounded-lg border border-border bg-background px-3 py-2.5 pr-10 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-1"
-              />
-              <button
-                type="button"
-                onClick={() => setShow(!show)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                aria-label={show ? "Hide password" : "Show password"}
-              >
-                {show ? ( <EyeOff className="size-4" /> ) : ( <Eye className="size-4" /> )}
-              </button>
-            </div>
-            <div className="mt-1.5 flex items-center justify-end">
-              <Link
-                href="/forgot-password"
-                className="text-xs text-violet-600 hover:underline"
-              >
-                Forgot password?
-              </Link>
-            </div>
+          <div className="text-sm text-end text-violet-600">
+            <Link href="/forgot-password" className="hover:underline">Forgot Password?</Link>
           </div>
-
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
+            className="flex w-full mt-8 items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin" />}
             Log in
@@ -114,7 +78,7 @@ export default function LoginPage() {
           type="button"
           onClick={handleGoogle}
           disabled={googleLoading}
-          className="flex w-full items-center justify-center gap-3 rounded-lg border border-border bg-background py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent disabled:opacity-60"
+          className="flex w-full items-center justify-center gap-3 rounded-lg border border-violet-500 bg-background py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent disabled:opacity-60"
         >
           {googleLoading ? (
             <Loader2 className="h-4 w-4 animate-spin" />

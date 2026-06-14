@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Loader2, Mail, ArrowLeft } from "lucide-react";
 import BackgroundGradient from "@/app/ui/background-gradient";
+import Input from "@/app/ui/Input";
 
 export default function ForgotPasswordPage() {
   const [loading, setLoading] = useState(false);
@@ -23,14 +24,14 @@ export default function ForgotPasswordPage() {
   return (
     <div className="relative flex min-h-screen items-center justify-center">
       <BackgroundGradient />
-      <div className="rounded-2xl border border-border bg-background p-4 shadow-sm w-full max-w-sm">
+      <div className="p-4 w-full max-w-sm">
         {!sent ? (
           <>
             <div className="mb-4">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-violet-50">
                 <Mail className="h-6 w-6 text-violet-600" />
               </div>
-              <h1 className="text-xl font-semibold text-foreground">
+              <h1 className="text-xl lg:text-2xl xl:text-3xl font-semibold text-foreground">
                 Forgot your password?
               </h1>
               <p className="mt-2 text-sm text-muted-foreground">
@@ -39,35 +40,26 @@ export default function ForgotPasswordPage() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label
-                  htmlFor="email"
-                  className="mb-1.5 block text-sm font-medium text-foreground"
-                >
-                  Email address
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  required
-                  placeholder="you@example.com"
+              <div className="space-y-4">
+                <Input label="Email address" 
+                  className="focus:ring-0! border-violet-500!" type="email" 
+                  placeholder="you@example.com" 
+                  leftIcon={<Mail className="size-4" />} required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-1"
                 />
               </div>
-
               <button
                 type="submit"
                 disabled={loading}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
+                className=" mt-8 flex w-full items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
               >
                 {loading && <Loader2 className="h-4 w-4 animate-spin" />}
                 Send reset link
               </button>
             </form>
 
-            <div className="mt-6 text-center">
+            <div className="mt-2">
               <Link
                 href="/login"
                 className="group inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground"

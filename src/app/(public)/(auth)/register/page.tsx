@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff, Loader2, CheckCircle2 } from "lucide-react";
+import { Eye, EyeOff, Loader2, CheckCircle2, Mail, Lock, User } from "lucide-react";
 import BackgroundGradient from "@/app/ui/background-gradient";
+import Input from "@/app/ui/Input";
 
 const passwordRules = [
   { label: "At least 8 characters", test: (p: string) => p.length >= 8 },
@@ -27,9 +28,9 @@ export default function RegisterPage() {
   return (
     <div className="relative flex min-h-screen items-center justify-center">
       <BackgroundGradient />
-      <div className="rounded-2xl border border-border bg-background p-4 shadow-sm w-full max-w-sm">
+      <div className="p-4 w-full max-w-sm mx-auto">
         <div className="mb-4">
-          <h1 className="text-xl font-semibold text-foreground">
+          <h1 className="text-2xl lg:text-3xl font-semibold text-foreground">
             Create your account
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
@@ -37,83 +38,25 @@ export default function RegisterPage() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-foreground">
-              Full name
-            </label>
-            <input
-              id="name"
-              type="text"
-              autoComplete="name"
-              required
-              placeholder="Ali Ahmed"
-              className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-1"
+        <form onSubmit={handleSubmit} className="space-y-2">
+          <div className="space-y-4">
+            <Input label="Full Name" className="focus:ring-0! border-violet-500!" type="text" placeholder="Awais Faryad" leftIcon={<User className="size-4" />} required />
+            <Input label="Email" className="focus:ring-0! border-violet-500!" type="email" placeholder="you@example.com" leftIcon={<Mail className="size-4" />} required />
+            <Input
+              label="Password"
+              type={show ? "text" : "password"}
+              placeholder="••••••••"
+              className="focus:ring-0! border-violet-500!"
+              leftIcon={<Lock className="size-4" />}
+              rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
+              onRightIconClick={() => setShow(!show)}
             />
-          </div>
-
-          <div>
-            <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              autoComplete="email"
-              required
-              placeholder="you@example.com"
-              className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-1"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="password" className="mb-1.5 block text-sm font-medium text-foreground">
-              Password
-            </label>
-            <div className="relative">
-              <input
-                id="password"
-                type={show ? "text" : "password"}
-                autoComplete="new-password"
-                required
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full rounded-lg border border-border bg-background px-3 py-2.5 pr-10 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-1"
-              />
-              <button
-                type="button"
-                onClick={() => setShow(!show)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-                aria-label={show ? "Hide password" : "Show password"}
-              >
-                {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-              </button>
-            </div>
-
-            {/* Password strength hints */}
-            {password.length > 0 && (
-              <ul className="mt-2 space-y-1">
-                {passwordRules.map(({ label, test }) => (
-                  <li key={label} className="flex items-center gap-1.5 text-xs">
-                    <CheckCircle2
-                      className={`h-3.5 w-3.5 ${
-                        test(password) ? "text-emerald-500" : "text-muted-foreground"
-                      }`}
-                    />
-                    <span className={test(password) ? "text-emerald-600" : "text-muted-foreground"}>
-                      {label}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            )}
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
+            className="flex w-full mt-8 items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin" />}
             Create account
