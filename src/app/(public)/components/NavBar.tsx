@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const NavBar = () => {
@@ -37,32 +37,29 @@ const NavBar = () => {
   };
 
   const navLinks = [
-    // { href: "/", label: "Home" },
-    // { href: "/about", label: "About" },
     { label: "Features", href: "#features" },
     { label: "How it works", href: "#how-it-works" },
     { label: "Pricing", href: "#pricing" },
     { label: "Testimonials", href: "#testimonials" },
   ];
 
-
   return (
     <>
       {/* Desktop Navbar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300 ${
+        className={`px-4 sm:px-6 lg:px-8 fixed top-0 left-0 right-0 z-50 hidden md:block transition-all duration-300 ${
           isScrolled
             ? "bg-white/95 backdrop-blur-md shadow-lg"
             : "bg-white shadow-md"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl mx-auto">
           <div className="flex justify-between items-center h-16">
             {/* Left Logo */}
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <Link
                 href="/"
-                className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
+                className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
               >
                 DevCollab
               </Link>
@@ -77,7 +74,7 @@ const NavBar = () => {
                   className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
@@ -87,7 +84,7 @@ const NavBar = () => {
               <Link href="/login" className="px-4 py-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200">
                 Log In
               </Link>
-              <Link href="/register" className="px-5 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200">
+              <Link href="/register" className="px-5 py-2 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200">
                 Sign Up
               </Link>
             </div>
@@ -106,7 +103,7 @@ const NavBar = () => {
             {/* Logo */}
             <Link
               href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
               onClick={closeMobileMenu}
             >
               BrandLogo
@@ -157,7 +154,7 @@ const NavBar = () => {
           <div className="flex justify-between items-center p-6 border-b border-gray-100">
             <Link
               href="/"
-              className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              className="text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
               onClick={closeMobileMenu}
             >
               DevCollab
@@ -206,7 +203,7 @@ const NavBar = () => {
               <button className="w-full px-4 py-3 text-blue-600 font-semibold border-2 border-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-200">
                 Log In
               </button>
-              <button className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200">
+              <button className="w-full px-4 py-3 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200">
                 Sign Up
               </button>
             </div>
