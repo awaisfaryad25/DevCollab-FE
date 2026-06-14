@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import NavBar from "./NavBar";
 
 const AUTH_ROUTES = [
   "/login",
@@ -20,7 +21,7 @@ const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   } else {
     return (
       <div className="bg-website-background w-full">
-        {/* <NavBar /> */}
+        <NavBar />
         {children}
       </div>
     );
