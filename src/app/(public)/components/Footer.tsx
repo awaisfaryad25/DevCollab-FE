@@ -1,6 +1,7 @@
 // components/footer/Footer.tsx
 import Link from "next/link";
 import { Box,  } from "lucide-react";
+import { FaGithub, FaLinkedinIn , FaXTwitter, FaFacebookF  } from "react-icons/fa6";
 
 const footerLinks = {
   Product: [
@@ -47,25 +48,35 @@ const Footer = () => {
                 className="text-muted-foreground hover:text-foreground"
                 aria-label="Twitter"
               >
-                {/* <Twitter className="h-4 w-4" /> */}
+                <FaXTwitter />
               </a>
+
               <a
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground"
+                className="text-muted-foreground hover:text-[#1b1f23]"
                 aria-label="GitHub"
               >
-                {/* <Github className="h-4 w-4" /> */}
+                <FaGithub />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground"
+                className="text-muted-foreground hover:text-[#0a66c2]"
                 aria-label="LinkedIn"
               >
-                {/* <Linkedin className="h-4 w-4" /> */}
+                <FaLinkedinIn />
+              </a>
+              <a
+                href="https:/facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-[#0866ff]"
+                aria-label="LinkedIn"
+              >
+                <FaFacebookF />
               </a>
             </div>
           </div>
