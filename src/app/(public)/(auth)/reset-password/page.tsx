@@ -48,7 +48,7 @@ export default function ResetPasswordPage() {
                   label="New Password"
                   type={show ? "text" : "password"}
                   placeholder="••••••••"
-                  className="focus:ring-0! border-violet-500!"
+                  className="border-violet-500!"
                   leftIcon={<Lock className="size-4" />}
                   rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
                   onRightIconClick={() => setShow(!show)}
@@ -57,7 +57,7 @@ export default function ResetPasswordPage() {
                   label="Confirm Password"
                   type={show ? "text" : "password"}
                   placeholder="••••••••"
-                  className="focus:ring-0! border-violet-500!"
+                  className="border-violet-500!"
                   leftIcon={<Lock className="size-4" />}
                   rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
                   onRightIconClick={() => setShow(!show)}

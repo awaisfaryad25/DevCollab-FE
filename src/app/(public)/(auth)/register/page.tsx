@@ -40,13 +40,13 @@ export default function RegisterPage() {
 
         <form onSubmit={handleSubmit} className="space-y-2">
           <div className="space-y-4">
-            <Input label="Full Name" className="focus:ring-0! border-violet-500!" type="text" placeholder="Awais Faryad" leftIcon={<User className="size-4" />} required />
-            <Input label="Email" className="focus:ring-0! border-violet-500!" type="email" placeholder="you@example.com" leftIcon={<Mail className="size-4" />} required />
+            <Input label="Full Name" className="border-violet-500!" type="text" placeholder="Awais Faryad" leftIcon={<User className="size-4" />} required />
+            <Input label="Email" className="border-violet-500!" type="email" placeholder="you@example.com" leftIcon={<Mail className="size-4" />} required />
             <Input
               label="Password"
               type={show ? "text" : "password"}
               placeholder="••••••••"
-              className="focus:ring-0! border-violet-500!"
+              className="border-violet-500!"
               leftIcon={<Lock className="size-4" />}
               rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
               onRightIconClick={() => setShow(!show)}

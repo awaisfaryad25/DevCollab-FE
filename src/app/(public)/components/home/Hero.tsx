@@ -8,11 +8,11 @@ const Hero = () => {
     <section className="relative overflow-hidden px-4 py-24 text-center md:py-36">
       {/* Subtle background glow */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="h-[480px] w-[800px] rounded-full bg-violet-100 opacity-40 blur-3xl dark:bg-violet-900/20" />
+        <div className="h-120 w-200 rounded-full bg-violet-100 opacity-40 blur-3xl dark:bg-violet-900/20" />
       </div>
 
       <div className="relative mx-auto max-w-3xl">
-        <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-medium text-violet-700 dark:border-violet-800 dark:bg-violet-900/30 dark:text-violet-300">
+        <span className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-violet-200 bg-violet-50 px-3 py-1 text-xs font-medium text-violet-700 dark:border-violet-800">
           <Zap className="h-3 w-3" />
           Real-time collaboration for dev teams
         </span>

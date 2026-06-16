@@ -1,7 +1,8 @@
 // components/footer/Footer.tsx
 import Link from "next/link";
-import { Box,  } from "lucide-react";
 import { FaGithub, FaLinkedinIn , FaXTwitter, FaFacebookF  } from "react-icons/fa6";
+import Image from "next/image";
+import { Logo, Logo1 } from "@/assets";
 
 const footerLinks = {
   Product: [
@@ -30,13 +31,27 @@ const Footer = () => {
         <div className="grid gap-12 md:grid-cols-5">
           {/* Brand */}
           <div className="md:col-span-2">
+            {/* <Link href="/" className="flex items-center gap-2">
+              <Image
+                src={Logo1}
+                className="w-9 4xl:w-[40px] h-6 4xl:h-[28px]"
+                alt="hexa-rgb"
+              />
+              <p className="font-medium text-xl 4xl:text-[26px] text-dark-gray">
+                DevCollab
+              </p>
+            </Link> */}
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-600 text-white">
-                <Box className="h-4 w-4" />
-              </div>
-              <span className="text-base font-semibold">DevCollab</span>
+              <Image
+                src={Logo}
+                className="w-9 4xl:w-[40px] h-6 4xl:h-[28px]"
+                alt="hexa-rgb"
+              />
+              <p className="font-medium text-xl 4xl:text-[26px] text-dark-gray">
+                DevCollab
+              </p>
             </Link>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
+            <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Real-time project management for software teams. Ship faster,
               together.
             </p>

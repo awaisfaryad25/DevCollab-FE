@@ -42,7 +42,7 @@ export default function ForgotPasswordPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-4">
                 <Input label="Email address" 
-                  className="focus:ring-0! border-violet-500!" type="email" 
+                  className="border-violet-500!" type="email" 
                   placeholder="you@example.com" 
                   leftIcon={<Mail className="size-4" />} required
                   value={email}

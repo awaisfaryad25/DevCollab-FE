@@ -30,7 +30,7 @@ export function ProtectedLayoutClient({
         </header>
 
         {/* Main Content */}
-        <main className="flex-1 overflow-y-auto bg-surface-soft/8 dark:bg-[#333333]/50 p-4">
+        <main className="flex-1 overflow-y-auto bg-[#F6F8FB] dark:bg-[#F6F8FB] p-4">
           {children}
         </main>
       </div>
