@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaGithub, FaLinkedinIn , FaXTwitter, FaFacebookF  } from "react-icons/fa6";
 import Image from "next/image";
 import { Logo, Logo1 } from "@/assets";
+import { ThemeToggle } from "@/app/ui/theme-toggle";
 
 const footerLinks = {
   Product: [
@@ -26,7 +27,7 @@ const footerLinks = {
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border bg-background px-4 py-16">
+    <footer className="border-t border-border bg-background px-4 pt-16 pb-6">
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid gap-12 md:grid-cols-5">
           {/* Brand */}
@@ -118,13 +119,11 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} DevCollab. All rights reserved.
           </p>
-          <p className="text-xs text-muted-foreground">
-            Built with Next.js · Tailwind · MongoDB
-          </p>
+          <ThemeToggle />
         </div>
       </div>
     </footer>
