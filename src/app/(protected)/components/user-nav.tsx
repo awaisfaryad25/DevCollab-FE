@@ -1,3 +1,4 @@
+import { BadgeCheck, HelpCircle, LogOut, Settings, User } from 'lucide-react';
 import React, { useState, useRef, useEffect } from 'react'
 
 interface User {
@@ -44,7 +45,7 @@ const UserNav = () => {
     <div className="relative" ref={dropdownRef}>
       <div className="flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors" onClick={toggleDropdown}>
         {/* Left - Profile Picture or Initials */}
-        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-sm">
+        <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-sm">
           {user.avatar ? (
             <img 
               src={user.avatar} 
@@ -92,19 +93,23 @@ const UserNav = () => {
           </div>
           
           <div className="py-1">
-            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center gap-3 border-b border-gray-100">
+              <BadgeCheck className="size-4" />
               Profile
             </button>
-            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center gap-3 border-b border-gray-100">
+              <Settings className="size-4" />
               Settings
             </button>
-            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors">
+            <button className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center gap-3">
+              <HelpCircle className="size-4" />
               Help
             </button>
           </div>
           
           <div className="border-t border-gray-100 py-1">
-            <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors">
+            <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors flex items-center gap-3">
+              <LogOut className="size-4 text-red-500" />
               Sign Out
             </button>
           </div>
