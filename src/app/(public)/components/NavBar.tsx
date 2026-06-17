@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { Logo } from "@/assets";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -42,7 +44,15 @@ const NavBar = () => {
         <div className="w-full max-w-7xl mx-auto">
           <div className="flex items-center justify-between h-16">
             <div className="lg:pr-16">
-              <Link
+            {/* <Link href="/" className="flex items-center gap-2 cursor-pointer">
+            <Image
+              src={Logo}
+              className="w-[30px] md:w-[36px] h-auto cursor-pointer"
+              alt="Hexa Logo"
+            />
+            <span className="font-medium text-lg md:text-xl text-dark-gray cursor-pointer">DevCollab</span>
+          </Link> */}
+            <Link
                 href="/"
                 className="text-xl lg:text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
               >

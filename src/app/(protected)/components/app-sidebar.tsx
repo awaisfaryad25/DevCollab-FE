@@ -21,6 +21,8 @@ import {
   Box,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { Logo } from "@/assets";
 
 type SidebarItem = {
   title: string;
@@ -83,14 +85,15 @@ const AppSidebar = () => {
     <aside className="h-screen w-64 shrink-0 border-r bg-sidebar">
       <div className="flex h-full flex-col p-4">
         {/* Logo */}
-        <Link
-          href="/dashboard"
-          className="mb-4 flex items-center gap-2 rounded-md px-2 py-2"
-        >
-          <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary text-primary-foreground">
-            <Box className="h-4 w-4" />
-          </div>
-          <span className="text-sm font-medium">DevCollab</span>
+        <Link href="/dashboard" className="flex items-center justify-center gap-2 mb-8">
+          <Image
+            src={Logo}
+            className="w-9 4xl:w-[40px] h-6 4xl:h-[28px]"
+            alt="DevCollab-rgb"
+          />
+          <p className="font-medium 4xl:text-lg text-dark-gray">
+            DevCollab
+          </p>
         </Link>
 
         {/* Nav sections */}
