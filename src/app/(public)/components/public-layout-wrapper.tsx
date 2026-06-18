@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import NavBar from "./NavBar";
+import Footer from "./Footer";
 
 const AUTH_ROUTES = [
   "/login",
@@ -23,6 +24,7 @@ const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
       <div className="bg-website-background w-full">
         <NavBar />
         {children}
+        <Footer />
       </div>
     );
   }

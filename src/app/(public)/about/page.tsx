@@ -20,7 +20,7 @@ const values = [
 ];
 
 const team = [
-  { name: "Awais Faryad", role: "Founder & CEO", initials: "AF", color: "bg-violet-100 text-violet-700" },
+  { name: "Awais Faryad", role: "Founder & CEO", initials: "AF", color: "bg-[#0EA5E9]/20 text-[#010066]" },
   { name: "Sara Ahmad", role: "Head of Product", initials: "SA", color: "bg-emerald-100 text-emerald-700" },
   { name: "Omar Farooq", role: "Lead Engineer", initials: "OF", color: "bg-orange-100 text-orange-700" },
 ];
@@ -31,7 +31,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="border-b border-border bg-muted/40 px-4 py-24 text-center">
         <div className="mx-auto max-w-2xl">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-violet-600">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-[#010066]">
             About us
           </span>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
@@ -66,7 +66,7 @@ export default function AboutPage() {
             {values.map(({ icon: Icon, title, desc }) => (
               <div key={title}>
                 <div className="mb-3 inline-flex rounded-lg bg-violet-50 p-2.5">
-                  <Icon className="h-5 w-5 text-violet-600" />
+                  <Icon className="h-5 w-5 text-[#010066]" />
                 </div>
                 <h3 className="mb-2 text-sm font-semibold text-foreground">{title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">{desc}</p>
@@ -104,7 +104,7 @@ export default function AboutPage() {
         </p>
         <Link
           href="/careers"
-          className="mt-6 inline-flex items-center gap-2 rounded-lg bg-violet-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-violet-700"
+          className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#010066] px-5 py-2.5 text-sm font-medium text-white hover:bg-[#010066]/90"
         >
           See open roles <ArrowRight className="h-4 w-4" />
         </Link>

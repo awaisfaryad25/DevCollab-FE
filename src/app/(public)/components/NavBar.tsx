@@ -43,21 +43,17 @@ const NavBar = () => {
       >
         <div className="w-full max-w-7xl mx-auto">
           <div className="flex items-center justify-between h-16">
-            <div className="lg:pr-16">
-            {/* <Link href="/" className="flex items-center gap-2 cursor-pointer">
-            <Image
-              src={Logo}
-              className="w-[30px] md:w-[36px] h-auto cursor-pointer"
-              alt="Hexa Logo"
-            />
-            <span className="font-medium text-lg md:text-xl text-dark-gray cursor-pointer">DevCollab</span>
-          </Link> */}
-            <Link
-                href="/"
-                className="text-xl lg:text-2xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:from-purple-600 hover:to-blue-600 transition-all duration-300"
-              >
+            <div className="lg:pr-10">
+            <Link href="/" className="flex items-center gap-2">
+              <Image
+                src={Logo}
+                className="w-10 4xl:w-[40px] h-7 4xl:h-[28px]"
+                alt="hexa-rgb"
+              />
+              <p className="font-medium text-lg md:text-xl text-dark-gray cursor-pointer">
                 DevCollab
-              </Link>
+              </p>
+            </Link>
             </div>
 
             <div className="hidden md:flex items-center justify-center transform space-x-4 lg:space-x-6">
@@ -65,10 +61,10 @@ const NavBar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm 4xl:text-base text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 relative group"
+                  className="text-sm 4xl:text-base text-[#6C757D] hover:text-[#010066] font-medium transition-colors duration-200 relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-px rounded-full bg-[#010066] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
@@ -98,10 +94,10 @@ const NavBar = () => {
             </button>
 
             <div className="hidden md:flex items-center space-x-2">
-              <Link href="/login" className="px-4 py-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors duration-200">
+              <Link href="/login" className="px-4 py-2 text-dark-gray font-semibold hover:bg-linear-to-r from-[#0EA5E9] to-[#010066] hover:bg-clip-text hover:text-transparent transition-colors duration-200">
                 Log In
               </Link>
-              <Link href="/register" className="px-5 py-2 bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200">
+              <Link href="/register" className="px-5 py-2 bg-linear-to-r from-[#0EA5E9] to-[#010066] text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200">
                 Sign Up
               </Link>
             </div>

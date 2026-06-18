@@ -61,7 +61,7 @@ const Pricing = () => {
     <section id="pricing" className="px-4 py-24">
       <div className="w-full max-w-5xl mx-auto">
         <div className="mb-12 text-center">
-          <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-widest text-violet-600">
+          <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-widest text-[#010066]">
             Pricing
           </span>
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -78,7 +78,7 @@ const Pricing = () => {
               className={cn(
                 "flex flex-col rounded-xl border p-6",
                 plan.highlight
-                  ? "border-violet-600 bg-violet-600 text-white shadow-lg shadow-violet-200 dark:shadow-violet-900/30"
+                  ? "border-[#010066] bg-[#010066] text-white shadow-lg shadow-violet-200 dark:shadow-violet-900/30"
                   : "border-border bg-background"
               )}
             >
@@ -127,7 +127,7 @@ const Pricing = () => {
                     <CheckCircle2
                       className={cn(
                         "h-4 w-4 shrink-0",
-                        plan.highlight ? "text-white/80" : "text-violet-600"
+                        plan.highlight ? "text-white/80" : "text-[#010066]"
                       )}
                     />
                     <span
@@ -145,7 +145,7 @@ const Pricing = () => {
                 className={cn(
                   "rounded-lg px-4 py-2.5 text-center text-sm font-medium transition-colors",
                   plan.highlight
-                    ? "bg-white text-violet-600 hover:bg-violet-50"
+                    ? "bg-white text-[#010066] hover:bg-violet-50"
                     : "border border-border bg-background text-foreground hover:bg-accent"
                 )}
               >

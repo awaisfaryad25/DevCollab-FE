@@ -5,14 +5,14 @@ const posts = [
   {
     slug: "building-real-time-apps-with-socket-io",
     tag: "Engineering",
-    tagColor: "bg-violet-50 text-violet-700",
+    tagColor: "bg-[#010066]/10 violet-50 text-[#010066]",
     title: "Building real-time apps with Socket.io and Next.js",
     excerpt:
       "A deep dive into how we built DevCollab's live kanban board — from connection management to optimistic UI updates.",
     date: "June 10, 2026",
     readTime: "8 min read",
     initials: "AF",
-    color: "bg-violet-100 text-violet-700",
+    color: "bg-[#010066]/20 text-[#010066]",
   },
   {
     slug: "stripe-webhooks-the-right-way",
@@ -46,7 +46,7 @@ export default function BlogPage() {
       {/* Header */}
       <section className="border-b border-border bg-muted/40 px-4 py-20 text-center">
         <div className="mx-auto max-w-2xl">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-violet-600">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-[#010066]">
             Blog
           </span>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground">
@@ -76,7 +76,7 @@ export default function BlogPage() {
                 <span className="text-xs text-muted-foreground">·</span>
                 <span className="text-xs text-muted-foreground">{post.readTime}</span>
               </div>
-              <h2 className="mb-2 text-base font-semibold text-foreground group-hover:text-violet-600">
+              <h2 className="mb-2 text-base font-semibold text-foreground group-hover:text-[#010066]">
                 {post.title}
               </h2>
               <p className="text-sm leading-relaxed text-muted-foreground">
@@ -87,7 +87,7 @@ export default function BlogPage() {
                   {post.initials}
                 </div>
                 <span className="text-xs text-muted-foreground">DevCollab team</span>
-                <ArrowRight className="ml-auto h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-violet-600" />
+                <ArrowRight className="ml-auto h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-[#010066]" />
               </div>
             </Link>
           ))}

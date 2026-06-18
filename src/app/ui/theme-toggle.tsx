@@ -20,7 +20,7 @@ export function ThemeToggle() {
   React.useEffect(() => setMounted(true), []);
 
   if (!mounted) {
-    return <div className="h-9 w-[108px] rounded-lg border border-border bg-muted" />;
+    return <div className="h-9 w-27 rounded-lg border border-border bg-muted" />;
   }
 
   return (
@@ -34,7 +34,7 @@ export function ThemeToggle() {
           className={cn(
             "flex h-7 w-7 items-center justify-center rounded-md transition-colors",
             theme === value
-              ? "bg-violet-600 text-white"
+              ? "bg-[#010066] text-white"
               : "text-muted-foreground hover:bg-accent hover:text-foreground"
           )}
         >

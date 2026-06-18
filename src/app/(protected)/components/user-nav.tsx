@@ -1,5 +1,5 @@
-import { BadgeCheck, HelpCircle, LogOut, Settings, User } from 'lucide-react';
-import React, { useState, useRef, useEffect } from 'react'
+import { BadgeCheck, HelpCircle, LogOut, Settings, User, ChevronsUpDown } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react'
 
 interface User {
   firstName: string;
@@ -45,7 +45,7 @@ const UserNav = () => {
     <div className="relative" ref={dropdownRef}>
       <div className="flex items-center justify-center gap-2 cursor-pointer hover:bg-gray-50 px-3 py-2 rounded-lg transition-colors" onClick={toggleDropdown}>
         {/* Left - Profile Picture or Initials */}
-        <div className="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold text-sm">
+        <div className="w-10 h-10 rounded-full bg-linear-to-r from-[#0EA5E9] to-[#010066] flex items-center justify-center text-white font-semibold text-sm">
           {user.avatar ? (
             <img 
               src={user.avatar} 

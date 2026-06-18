@@ -7,7 +7,6 @@ import HowItWorks from './components/home/HowItWorks'
 import Pricing from './components/home/Pricing'
 import Testimonials from './components/home/Testimonials'
 import CTABanner from './components/home/CTABanner'
-import Footer from './components/Footer'
 
 const LandingPage = () => {
 
@@ -21,7 +20,6 @@ const LandingPage = () => {
         <Pricing />
         <Testimonials />
         <CTABanner />
-        <Footer />
       </main>
     </>
   )
