@@ -42,7 +42,7 @@ export default function ForgotPasswordPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-4">
                 <Input label="Email address" 
-                  className="border-violet-500!" type="email" 
+                  className="border-[#0EA5E9]!" type="email" 
                   placeholder="you@example.com" 
                   leftIcon={<Mail className="size-4" />} required
                   value={email}
@@ -52,7 +52,7 @@ export default function ForgotPasswordPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className=" mt-8 flex w-full items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
+                className=" mt-8 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-[#0EA5E9] to-[#010066] hover:bg-linear-to-l from-[#0EA5E9] to-[#010066] py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
               >
                 {loading && <Loader2 className="h-4 w-4 animate-spin" />}
                 Send reset link
@@ -62,9 +62,9 @@ export default function ForgotPasswordPage() {
             <div className="mt-2">
               <Link
                 href="/login"
-                className="group inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground"
+                className="group inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-[#010066]"
               >
-                <ArrowLeft className="h-3.5 w-3.5 group-hover:text-violet-600" />
+                <ArrowLeft className="h-3.5 w-3.5 group-hover:text-[#0EA5E9]" />
                 Back to login
               </Link>
             </div>

@@ -42,24 +42,24 @@ export default function LoginPage() {
         {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-2">
           <div className="space-y-4">
-            <Input label="Email" className="border-violet-500!" type="email" placeholder="you@example.com" leftIcon={<Mail className="size-4" />} required />
+            <Input label="Email" className="border-[#0EA5E9]!" type="email" placeholder="you@example.com" leftIcon={<Mail className="size-4" />} required />
             <Input
               label="Password"
               type={show ? "text" : "password"}
               placeholder="••••••••"
-              className="border-violet-500!"
+              className="border-[#0EA5E9]!"
               leftIcon={<Lock className="size-4" />}
               rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
               onRightIconClick={() => setShow(!show)}
             />
           </div>
-          <div className="text-sm text-end text-violet-600">
+          <div className="text-sm text-end text-[#0EA5E9]">
             <Link href="/forgot-password" className="hover:underline">Forgot Password?</Link>
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full mt-8 items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
+            className="flex w-full mt-8 items-center justify-center gap-2 rounded-lg bg-linear-to-r from-[#0EA5E9] to-[#010066] hover:bg-linear-to-l from-[#0EA5E9] to-[#010066] py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin" />}
             Log in
@@ -78,7 +78,7 @@ export default function LoginPage() {
           type="button"
           onClick={handleGoogle}
           disabled={googleLoading}
-          className="flex w-full items-center justify-center gap-3 rounded-lg border border-violet-500 bg-background py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent disabled:opacity-60"
+          className="flex w-full items-center justify-center gap-3 rounded-lg border border-[#0EA5E9] bg-background py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent disabled:opacity-60"
         >
           {googleLoading ? (
             <Loader2 className="h-4 w-4 animate-spin" />
@@ -113,7 +113,7 @@ export default function LoginPage() {
           Don't have an account?{" "}
           <Link
             href="/register"
-            className="font-medium text-violet-600 hover:underline"
+            className="font-medium text-[#0EA5E9] hover:underline"
           >
             Sign up free
           </Link>

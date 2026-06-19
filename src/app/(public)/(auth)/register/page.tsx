@@ -40,13 +40,13 @@ export default function RegisterPage() {
 
         <form onSubmit={handleSubmit} className="space-y-2">
           <div className="space-y-4">
-            <Input label="Full Name" className="border-violet-500!" type="text" placeholder="Awais Faryad" leftIcon={<User className="size-4" />} required />
-            <Input label="Email" className="border-violet-500!" type="email" placeholder="you@example.com" leftIcon={<Mail className="size-4" />} required />
+            <Input label="Full Name" className="border-[#0EA5E9]!" type="text" placeholder="Awais Faryad" leftIcon={<User className="size-4" />} required />
+            <Input label="Email" className="border-[#0EA5E9]!" type="email" placeholder="you@example.com" leftIcon={<Mail className="size-4" />} required />
             <Input
               label="Password"
               type={show ? "text" : "password"}
               placeholder="••••••••"
-              className="border-violet-500!"
+              className="border-[#0EA5E9]!"
               leftIcon={<Lock className="size-4" />}
               rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
               onRightIconClick={() => setShow(!show)}
@@ -56,7 +56,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full mt-8 items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
+            className="flex w-full mt-8 items-center justify-center gap-2 rounded-lg bg-linear-to-r from-[#0EA5E9] to-[#010066] hover:bg-linear-to-l from-[#0EA5E9] to-[#010066] py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
           >
             {loading && <Loader2 className="h-4 w-4 animate-spin" />}
             Create account
@@ -91,14 +91,14 @@ export default function RegisterPage() {
 
         <p className="mt-2 text-center text-xs text-muted-foreground">
           By signing up you agree to our{" "}
-          <Link href="/terms" className="text-violet-600 hover:underline">Terms</Link>{" "}
+          <Link href="/terms" className="text-[#0EA5E9] hover:underline">Terms</Link>{" "}
           and{" "}
-          <Link href="/privacy" className="text-violet-600 hover:underline">Privacy policy</Link>.
+          <Link href="/privacy" className="text-[#0EA5E9] hover:underline">Privacy policy</Link>.
         </p>
 
         <p className="mt-2 text-center text-xs text-muted-foreground">
           Already have an account?{" "}
-          <Link href="/login" className="font-medium text-violet-600 hover:underline">
+          <Link href="/login" className="font-medium text-[#0EA5E9] hover:underline">
             Log in
           </Link>
         </p>

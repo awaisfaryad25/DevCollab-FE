@@ -48,7 +48,7 @@ export default function ResetPasswordPage() {
                   label="New Password"
                   type={show ? "text" : "password"}
                   placeholder="••••••••"
-                  className="border-violet-500!"
+                  className="border-[#0EA5E9]!"
                   leftIcon={<Lock className="size-4" />}
                   rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
                   onRightIconClick={() => setShow(!show)}
@@ -57,7 +57,7 @@ export default function ResetPasswordPage() {
                   label="Confirm Password"
                   type={show ? "text" : "password"}
                   placeholder="••••••••"
-                  className="border-violet-500!"
+                  className="border-[#0EA5E9]!"
                   leftIcon={<Lock className="size-4" />}
                   rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
                   onRightIconClick={() => setShow(!show)}
@@ -67,7 +67,7 @@ export default function ResetPasswordPage() {
               <button
                 type="submit"
                 disabled={loading || mismatch || password.length < 8}
-                className="mt-8 flex w-full items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
+                className="mt-8 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-[#0EA5E9] to-[#010066] hover:bg-linear-to-l from-[#0EA5E9] to-[#010066] py-2.5 text-sm font-medium text-white transition-colors  "
               >
                 {loading && <Loader2 className="h-4 w-4 animate-spin" />}
                 Reset password
@@ -87,7 +87,7 @@ export default function ResetPasswordPage() {
             </p>
             <Link
               href="/login"
-              className="mt-6 inline-flex items-center gap-1.5 rounded-lg bg-violet-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-violet-700"
+              className="mt-6 inline-flex items-center gap-1.5 rounded-lg bg-[#0EA5E9] px-5 py-2.5 text-sm font-medium text-white hover:bg-violet-700"
             >
               Go to login
             </Link>
