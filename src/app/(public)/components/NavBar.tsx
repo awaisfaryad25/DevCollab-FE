@@ -38,7 +38,7 @@ const NavBar = () => {
     <>
       <nav
         className={`px-4 sm:px-6 lg:px-8 sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-white shadow-md"
+          isScrolled ? "bg-white/95 dark:bg-[#171717] backdrop-blur-md shadow-lg" : "bg-white dark:bg-[#171717] shadow-md"
         }`}
       >
         <div className="w-full max-w-7xl mx-auto">
@@ -61,10 +61,10 @@ const NavBar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm 4xl:text-base text-[#6C757D] hover:text-[#010066] font-medium transition-colors duration-200 relative group"
+                  className="text-sm 4xl:text-base text-[#6C757D] hover:text-[#010066] dark:hover:text-[#0EA5E9] font-medium transition-colors duration-200 relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px rounded-full bg-[#010066] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-px rounded-full bg-[#010066] dark:bg-[#0EA5E9] transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
