@@ -1,7 +1,7 @@
 "use client";
 
 import AppSidebar from "./app-sidebar";
-import ModeToggle from "./mode-toggle";
+import {ModeToggle} from "./mode-toggle";
 import UserNav from "./user-nav";
 
 interface ProtectedLayoutClientProps {
@@ -22,7 +22,7 @@ export function ProtectedLayoutClient({
       <div className="flex flex-1 flex-col overflow-hidden">
 
         {/* Navbar */}
-        <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b bg-sidebar px-4">
+        <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b px-4 bg-muted/40">
           <div className="w-full flex items-center justify-end gap-3">
             <ModeToggle />
             <UserNav />
@@ -30,7 +30,7 @@ export function ProtectedLayoutClient({
         </header>
 
         {/* Main Content */}
-        <main className="flex-1 overflow-y-auto bg-[#F6F8FB] dark:bg-[#F6F8FB] p-4">
+        <main className="flex-1 overflow-y-auto bg-muted/20 p-4">
           {children}
         </main>
       </div>
