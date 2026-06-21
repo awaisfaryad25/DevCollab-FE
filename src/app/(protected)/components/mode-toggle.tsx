@@ -47,7 +47,7 @@ export function ModeToggle() {
   const getThemeIcon = () => {
     switch (theme) {
       case "light":
-        return <Sun className="size-5 text-[#FBBB00]" />;
+        return <Sun className="size-5 text-warning" />;
       case "dark":
         return <Moon className="size-5 text-white" />;
       default:
@@ -86,11 +86,11 @@ export function ModeToggle() {
             className={cn(
               "w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors hover:bg-muted",
               isThemeActive("light")
-                ? "text-[#FBBB00] dark:text-[#FBBB00] bg-yellow-50"
+                ? "text-warning dark:text-warning bg-warning/10"
                 : "text-gray-700 dark:text-gray-300 "
             )}
           >
-            <Sun className="size-4 text-[#FBBB00]" />
+            <Sun className="size-4 text-warning" />
             <span>Light</span>
             {isThemeActive("light") && (
               <Check className="size-4 ml-auto" />

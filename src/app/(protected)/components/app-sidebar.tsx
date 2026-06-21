@@ -76,7 +76,7 @@ const AppSidebar = () => {
           <div
             onClick={() => setIsMobileOpen(false)}
             className={cn(
-              "fixed inset-0 z-[90] bg-black/60 transition-opacity duration-300 md:hidden",
+              "fixed inset-0 z-[90] bg-background/60 transition-opacity duration-300 md:hidden",
               isMobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
             )}
           />
@@ -100,7 +100,7 @@ const AppSidebar = () => {
       {/* Desktop sidebar */}
       <aside
         className={cn(
-          "hidden md:block h-screen shrink-0 bg-muted/40 border-r transition-all duration-300 ease-in-out relative",
+          "hidden md:block h-screen shrink-0 bg-background border-r transition-all duration-300 ease-in-out relative",
           isCollapsed ? "w-16" : "w-64"
         )}
       >
@@ -137,7 +137,7 @@ const SidebarContent = ({
         <button
           onClick={toggleSidebar}
           className={cn(
-            "absolute -right-3 top-5 z-10 rounded-full border border-border bg-background p-1 hover:bg-accent transition-colors",
+            "absolute -right-3 top-5 z-90 rounded-full border border-border bg-background p-1 hover:bg-accent transition-colors",
             isCollapsed ? "rotate-0" : "rotate-180"
           )}
           aria-label="Toggle sidebar"

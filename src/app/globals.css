@@ -5,9 +5,6 @@
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
 
@@ -22,6 +19,13 @@
   --color-sidebar: hsl(var(--sidebar));
   --color-sidebar-foreground: hsl(var(--sidebar-foreground));
   --color-sidebar-border: hsl(var(--sidebar-border));
+
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  
 }
 
 :root {
@@ -36,15 +40,18 @@
 
   --border: 240 5.9% 90%;
 
-  --primary: 262 51% 47%;
-  --primary-foreground: 0 0% 100%;
-
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
   --sidebar: 0 0% 98%;
   --sidebar-foreground: 240 5.3% 26.1%;
   --sidebar-border: 240 5.9% 90%;
+
+  --success: #6BBE66;
+  --warning: #FBBB00;
+  --danger: #E01E5A;
+
+
 }
 
 .dark {
@@ -54,18 +61,15 @@
   --muted: 240 3.7% 15.9%;
   --muted-foreground: 240 5% 64.9%;
 
-  --accent: 240 3.7% 15.9%;
+  --accent: 240 5.9% 10%;
   --accent-foreground: 0 0% 98%;
 
   --border: 240 3.7% 15.9%;
 
-  --primary: 262 51% 60%;
-  --primary-foreground: 0 0% 100%;
-
   --destructive: 0 70% 50%;
   --destructive-foreground: 0 0% 98%;
 
-  --sidebar: 240 5.9% 10%;
+  --sidebar: 240 3.7% 15.9%;
   --sidebar-foreground: 240 4.8% 95.9%;
   --sidebar-border: 240 3.7% 15.9%;
 }

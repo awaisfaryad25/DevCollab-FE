@@ -21,34 +21,34 @@ export const sidebarData: SidebarSection[] = [
     section: "Main",
     items: [
       { title: "Overview", url: "/dashboard", icon: LayoutDashboard },
-      { title: "Analytics", url: "/dashboard/analytics", icon: BarChart3 },
-      { title: "Reports", url: "/dashboard/reports", icon: FileText },
+      { title: "Analytics", url: "/analytics", icon: BarChart3 },
+      { title: "Reports", url: "/reports", icon: FileText },
     ],
   },
   {
     section: "Management",
     items: [
-      { title: "Users", url: "/dashboard/users", icon: Users },
-      { title: "Workspaces", url: "/dashboard/workspaces", icon: Building2 },
-      { title: "Projects", url: "/dashboard/projects", icon: FolderKanban },
-      { title: "Tasks", url: "/dashboard/tasks", icon: CheckSquare },
+      { title: "Users", url: "/users", icon: Users },
+      { title: "Workspaces", url: "/workspaces", icon: Building2 },
+      { title: "Projects", url: "/projects", icon: FolderKanban },
+      { title: "Tasks", url: "/tasks", icon: CheckSquare },
     ],
   },
   {
     section: "Finance",
     items: [
-      { title: "Subscriptions", url: "/dashboard/subscriptions", icon: CreditCard },
-      { title: "Invoices", url: "/dashboard/invoices", icon: Receipt },
-      { title: "Transactions", url: "/dashboard/transactions", icon: ArrowLeftRight },
+      { title: "Subscriptions", url: "/subscriptions", icon: CreditCard },
+      { title: "Invoices", url: "/invoices", icon: Receipt },
+      { title: "Transactions", url: "/transactions", icon: ArrowLeftRight },
     ],
   },
   {
     section: "System",
     items: [
-      { title: "Email logs", url: "/dashboard/emails", icon: Mail, badge: "3" },
-      { title: "Notifications", url: "/dashboard/notifications", icon: Bell },
-      { title: "Activity log", url: "/dashboard/activity", icon: Activity },
-      { title: "Settings", url: "/dashboard/settings", icon: Settings },
+      { title: "Email logs", url: "/emails", icon: Mail, badge: "3" },
+      { title: "Notifications", url: "/notifications", icon: Bell },
+      { title: "Activity log", url: "/activity", icon: Activity },
+      { title: "Settings", url: "/settings", icon: Settings },
     ],
   },
 ];

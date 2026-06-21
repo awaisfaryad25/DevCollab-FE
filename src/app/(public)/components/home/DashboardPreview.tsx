@@ -8,9 +8,9 @@ const DashboardPreview = () => {
           
           {/* Fake browser bar */}
           <div className="flex items-center gap-2 border-b border-border bg-background px-4 py-3">
-            <div className="h-2.5 w-2.5 rounded-full bg-red-400" />
-            <div className="h-2.5 w-2.5 rounded-full bg-yellow-400" />
-            <div className="h-2.5 w-2.5 rounded-full bg-green-400" />
+            <div className="h-2.5 w-2.5 rounded-full bg-danger" />
+            <div className="h-2.5 w-2.5 rounded-full bg-warning" />
+            <div className="h-2.5 w-2.5 rounded-full bg-success" />
             <div className="ml-4 flex-1 rounded bg-muted px-3 py-1 text-xs text-muted-foreground">
               app.devcollab.io/workspace/dashboard
             </div>

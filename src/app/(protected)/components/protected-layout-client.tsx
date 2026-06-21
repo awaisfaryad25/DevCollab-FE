@@ -22,15 +22,15 @@ export function ProtectedLayoutClient({
       <div className="flex flex-1 flex-col overflow-hidden">
 
         {/* Navbar */}
-        <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b px-4 bg-muted/40">
-          <div className="w-full flex items-center justify-end gap-3">
+        <header className="sticky top-0 z-50 flex h-16 items-center justify-between border-b px-4 bg-background">
+          <div className="w-full flex items-center justify-end gap-1 lg:gap-2">
             <ModeToggle />
             <UserNav />
           </div>
         </header>
 
         {/* Main Content */}
-        <main className="flex-1 overflow-y-auto bg-muted/20 p-4">
+        <main className="flex-1 overflow-y-auto bg-accent p-4">
           {children}
         </main>
       </div>
