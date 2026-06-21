@@ -33,9 +33,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       <div className="flex w-full flex-col gap-1.5">
         {/* Label */}
         {label && (
-          <label htmlFor={inputId} className="text-sm font-medium text-foreground">
+          <label htmlFor={inputId} className="text-sm font-medium text-text">
             {label}
-            {required && (<span className="ml-1 text-red-500" aria-hidden="true">*</span>)}
+            {required && (<span className="ml-1 text-danger" aria-hidden="true">*</span>)}
           </label>
         )}
 
@@ -44,7 +44,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
           {/* Left icon */}
           {leftIcon && (
-            <div className="pointer-events-none absolute left-3 flex items-center text-muted-foreground">
+            <div className="pointer-events-none absolute left-3 flex items-center text-text">
               {leftIcon}
             </div>
           )}
@@ -60,13 +60,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             }
             className={cn(
               // base
-              "w-full rounded-lg border bg-background text-sm text-foreground placeholder:text-muted-foreground",
+              "w-full rounded-lg border bg-background text-sm text-text placeholder:text-muted-foreground",
               "px-3 py-2.5 transition-colors outline-none",
               "focus:ring-2 focus:ring-offset-1",
               leftIcon && "pl-9",
               rightIcon && "pr-9",
               !error && " focus:ring-gray-300",
-              error && "border-red-400 focus:ring-red-400",
+              error && "border-danger focus:ring-danger",
               // disabled state
               disabled && "cursor-not-allowed opacity-50",
               className
@@ -79,7 +79,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             <div
               className={cn(
                 "absolute right-3 flex items-center text-muted-foreground",
-                onRightIconClick ? "cursor-pointer hover:text-violet-500" : "pointer-events-none"
+                onRightIconClick ? "cursor-pointer hover:text-primary" : "pointer-events-none"
               )}
               onClick={onRightIconClick}
               aria-hidden={!onRightIconClick}
@@ -93,7 +93,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {error && (
           <p
             id={`${inputId}-error`}
-            className="flex items-center gap-1 text-xs text-red-500"
+            className="flex items-center gap-1 text-xs text-danger"
             role="alert"
           >
             {error}
@@ -102,7 +102,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         {/* Hint text */}
         {!error && hint && (
-          <p id={`${inputId}-hint`} className="text-xs text-muted-foreground">
+          <p id={`${inputId}-hint`} className="text-xs">
             {hint}
           </p>
         )}

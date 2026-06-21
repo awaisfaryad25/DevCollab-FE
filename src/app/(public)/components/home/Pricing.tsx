@@ -61,7 +61,7 @@ const Pricing = () => {
     <section id="pricing" className="px-4 py-24">
       <div className="w-full max-w-5xl mx-auto">
         <div className="mb-12 text-center">
-          <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-widest text-[#010066]">
+          <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-widest text-primary">
             Pricing
           </span>
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -78,7 +78,7 @@ const Pricing = () => {
               className={cn(
                 "flex flex-col rounded-xl border p-6",
                 plan.highlight
-                  ? "border-[#010066] bg-[#010066] text-white shadow-lg shadow-violet-200 dark:shadow-violet-900/30"
+                  ? "border-secondary bg-secondary text-white shadow-lg shadow-secondary dark:shadow-violet-900/30"
                   : "border-border bg-background"
               )}
             >

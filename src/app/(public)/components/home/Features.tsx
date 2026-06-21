@@ -46,7 +46,7 @@ const Features = () => {
     <section id="features" className="px-4 py-24">
       <div className="w-full max-w-5xl mx-auto">
         <div className="mb-12 text-center">
-          <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-widest text-[#010066]">
+          <span className="mb-2 inline-block text-xs font-semibold uppercase tracking-widest text-primary">
             Features
           </span>
           <h2 className="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -62,8 +62,8 @@ const Features = () => {
               key={title}
               className="group rounded-xl border border-border bg-background p-6 transition-shadow hover:shadow-md"
             >
-              <div className="mb-4 inline-flex rounded-lg bg-[#010066]/20 p-2.5 dark:bg-[#010066]/20">
-                <Icon className="h-5 w-5 text-[#010066]" />
+              <div className="mb-4 inline-flex rounded-lg bg-secondary p-2.5 ">
+                <Icon className="h-5 w-5 text-primary" />
               </div>
               <h3 className="mb-2 text-sm font-semibold text-foreground">
                 {title}

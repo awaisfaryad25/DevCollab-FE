@@ -2,6 +2,20 @@
 @import "tailwindcss";
 
 @theme inline {
+
+  
+  /* Brand Colors */
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-primary-rgb: var(--primary-rgb);
+  --color-secondary-rgb: var(--secondary-rgb);
+  --color-gradient: var(--gradient);
+
+  /* Text Colors */
+  --color-heading: var(--heading);
+  --color-text: var(--text);
+
+  /* Background colors */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
@@ -29,6 +43,16 @@
 }
 
 :root {
+  --primary: #0EA5E9;
+  --secondary: #010066;
+  --primary-rgb: 14, 165, 233;
+  --secondary-rgb: 1, 0, 102;
+  --gradient: linear-gradient(90deg, #0EA5E9, #010066);
+
+  /* Text Colors */
+  --heading: #333333;
+  --text: #6C757D;
+
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
 
@@ -51,10 +75,13 @@
   --warning: #FBBB00;
   --danger: #E01E5A;
 
-
 }
 
 .dark {
+  /* Text Colors */
+  --heading: #FFFFFF;
+  --text: #A3A3A3;
+
   --background: 240 10% 3.9%;
   --foreground: 0 0% 98%;
 
@@ -81,4 +108,33 @@
 body {
   background: var(--color-background);
   color: var(--color-foreground);
+}
+
+/* Heading with your brand colors */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading);
+}
+
+/* Paragraph/text */
+p {
+  color: var(--text);
+}
+
+@layer utilities {
+  .gradient {
+    background: var(--gradient);
+  }
+  
+  /* Optional: Different gradient directions */
+  .gradient-horizontal {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+  }
+  
+  .gradient-vertical {
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  }
+  
+  .gradient-diagonal {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+  }
 }

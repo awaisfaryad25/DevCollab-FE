@@ -82,7 +82,7 @@ const UserNav = () => {
 
       {/* Dropdown Popup */}
       {isDropdownOpen && (
-        <div className="absolute right-0 mt-2 w-56 bg-muted/40 rounded-lg shadow-lg border border-gray-100 py-2 z-50">
+        <div className="absolute right-0 mt-2 w-56 bg-background rounded-lg shadow-lg border border-gray-100 py-2 z-100">
           <div className="px-4 py-3 border-b border-gray-100">
             <p className="text-sm font-medium ">
               {user.firstName} {user.lastName}
@@ -93,22 +93,22 @@ const UserNav = () => {
           </div>
           
           <div className="">
-            <button className="w-full text-left px-4 py-2 text-sm  hover:bg-muted transition-colors flex items-center gap-3 border-b border-gray-100">
+            <button className="w-full text-left px-4 py-2 text-sm  hover:bg-accent transition-colors flex items-center gap-3 border-b border-gray-100">
               <BadgeCheck className="size-4" />
               Profile
             </button>
-            <button className="w-full text-left px-4 py-2 text-sm hover:bg-muted transition-colors flex items-center gap-3 border-b border-gray-100">
+            <button className="w-full text-left px-4 py-2 text-sm hover:bg-accent transition-colors flex items-center gap-3 border-b border-gray-100">
               <Settings className="size-4" />
               Settings
             </button>
-            <button className="w-full text-left px-4 py-2 text-sm hover:bg-muted transition-colors flex items-center gap-3">
+            <button className="w-full text-left px-4 py-2 text-sm hover:bg-accent transition-colors flex items-center gap-3">
               <HelpCircle className="size-4" />
               Help
             </button>
           </div>
           
           <div className="border-t border-gray-100 ">
-            <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-muted transition-colors flex items-center gap-3">
+            <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-accent transition-colors flex items-center gap-3">
               <LogOut className="size-4 text-red-500" />
               Sign Out
             </button>

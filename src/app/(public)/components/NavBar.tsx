@@ -50,9 +50,9 @@ const NavBar = () => {
                 className="w-10 4xl:w-[40px] h-7 4xl:h-[28px]"
                 alt="hexa-rgb"
               />
-              <p className="font-medium text-lg md:text-xl text-dark-gray cursor-pointer">
+              <span className="font-medium text-lg md:text-xl text-heading cursor-pointer">
                 DevCollab
-              </p>
+              </span>
             </Link>
             </div>
 
@@ -61,10 +61,10 @@ const NavBar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm 4xl:text-base text-[#6C757D] hover:text-[#010066] dark:hover:text-[#0EA5E9] font-medium transition-colors duration-200 relative group"
+                  className="text-sm 4xl:text-base text-text hover:text-secondary dark:hover:text-primary font-medium transition-colors duration-200 relative group"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-px rounded-full bg-[#010066] dark:bg-[#0EA5E9] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-px rounded-full bg-secondary dark:bg-primary transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               ))}
             </div>
@@ -77,27 +77,27 @@ const NavBar = () => {
               aria-expanded={isMobileMenuOpen}
             >
               <span
-                className={`w-6 h-0.5 bg-[#333333] transition-all duration-300 ease-in-out ${
+                className={`w-6 h-0.5 bg-heading transition-all duration-300 ease-in-out ${
                   isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
                 }`}
               />
               <span
-                className={`w-6 h-0.5 bg-[#333333] transition-all duration-300 ease-in-out ${
+                className={`w-6 h-0.5 bg-heading transition-all duration-300 ease-in-out ${
                   isMobileMenuOpen ? "opacity-0" : ""
                 }`}
               />
               <span
-                className={`w-6 h-0.5 bg-[#333333] transition-all duration-300 ease-in-out ${
+                className={`w-6 h-0.5 bg-heading transition-all duration-300 ease-in-out ${
                   isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
                 }`}
               />
             </button>
 
             <div className="hidden md:flex items-center space-x-2">
-              <Link href="/login" className="px-4 py-2 text-dark-gray font-semibold hover:bg-linear-to-r from-[#0EA5E9] to-[#010066] hover:bg-clip-text hover:text-transparent transition-colors duration-200">
+              <Link href="/login" className="px-4 py-2 text-dark-gray font-semibold hover:bg-linear-to-r from-primary to-secondary hover:bg-clip-text hover:text-transparent transition-colors duration-200">
                 Log In
               </Link>
-              <Link href="/register" className="px-5 py-2 bg-linear-to-r from-[#0EA5E9] to-[#010066] text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200">
+              <Link href="/register" className="gradient px-5 py-2 text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-200">
                 Sign Up
               </Link>
             </div>
@@ -117,7 +117,7 @@ const NavBar = () => {
               key={link.href}
               href={link.href}
               onClick={closeMobileMenu}
-              className="px-2 py-3 text-sm text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 border-b border-gray-50 last:border-b-0"
+              className="px-2 py-3 text-sm text-text hover:text-primary font-medium transition-colors duration-200 border-b border-border last:border-b-0"
             >
               {link.label}
             </Link>
@@ -125,7 +125,7 @@ const NavBar = () => {
             <Link
               href="/login"
               onClick={closeMobileMenu}
-              className="px-3 py-2 text-cent text-[#6C757D] font-semibold hover:text-blue-700 transition-colors duration-200"
+              className="px-3 py-2 text-cent text-text font-semibold hover:primary transition-colors duration-200"
             >
               Log In
             </Link>
@@ -140,7 +140,7 @@ const NavBar = () => {
             <Link
               href="/register"
               onClick={closeMobileMenu}
-              className="px-5 py-2 text-center bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200"
+              className="gradient px-5 py-2 text-center text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-200"
             >
               Sign Up
             </Link>
@@ -150,7 +150,7 @@ const NavBar = () => {
 
       {isMobileMenuOpen && (
         <div
-          className="md:hidden fixed inset-0 top-16 bg-black/10 backdrop-blur-[2px] z-30"
+          className="md:hidden fixed inset-0 top-16 bg-background/10 backdrop-blur-[2px] z-30"
           onClick={closeMobileMenu}
           aria-hidden="true"
         />

@@ -74,7 +74,7 @@ export function ModeToggle() {
       </button>
 
       {isPopupOpen && (
-        <div className="absolute right-0 mt-2 w-40 bg-muted/40 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1 z-50">
+        <div className="absolute right-0 mt-2 w-40 bg-background rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 py-1 z-50">
           <div className="px-4 py-2 border-b border-gray-200 dark:border-gray-700">
             <p className="text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               Theme
@@ -84,7 +84,7 @@ export function ModeToggle() {
           <button
             onClick={() => handleThemeChange("light")}
             className={cn(
-              "w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors hover:bg-muted",
+              "w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors hover:bg-accent",
               isThemeActive("light")
                 ? "text-warning dark:text-warning bg-warning/10"
                 : "text-gray-700 dark:text-gray-300 "
@@ -100,7 +100,7 @@ export function ModeToggle() {
           <button
             onClick={() => handleThemeChange("dark")}
             className={cn(
-              "w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors hover:bg-muted",
+              "w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors hover:bg-accent",
               isThemeActive("dark")
                 ? "text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20"
                 : ""
@@ -119,7 +119,7 @@ export function ModeToggle() {
               "w-full flex items-center gap-3 px-4 py-2 text-sm transition-colors",
               isThemeActive("system")
                 ? "text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20"
-                : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+                : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-accent"
             )}
           >
             <Monitor className="size-4" />

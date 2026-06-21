@@ -34,7 +34,7 @@ export function ThemeToggle() {
           className={cn(
             "flex h-7 w-7 items-center justify-center rounded-md transition-colors",
             theme === value
-              ? "bg-[#010066] text-white"
+              ? "bg-secondary text-white"
               : "text-muted-foreground hover:bg-accent hover:text-foreground"
           )}
         >

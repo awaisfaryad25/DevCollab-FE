@@ -21,7 +21,7 @@ const DashboardPreview = () => {
             {/* Sidebar */}
             <div className="col-span-1 hidden border-r border-border p-4 sm:block">
               <div className="mb-4 flex items-center gap-2">
-                <div className="h-6 w-6 rounded bg-linear-to-tr from-[#0EA5E9] to-[#010066]" />
+                <div className="gradient size-6 rounded " />
                 <div className="h-3 w-16 rounded bg-muted" />
               </div>
               {[...Array(6)].map((_, i) => (

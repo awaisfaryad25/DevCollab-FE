@@ -21,7 +21,7 @@ const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
     return children;
   } else {
     return (
-      <div className="bg-website-background w-full">
+      <div className="bg-background w-full">
         <NavBar />
         {children}
         <Footer />

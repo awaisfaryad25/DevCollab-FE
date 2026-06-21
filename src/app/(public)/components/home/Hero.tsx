@@ -9,7 +9,7 @@ const Hero = () => {
     <section className="relative overflow-hidden px-4 py-12 text-center md:py-16">
       {/* Subtle background glow */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-        <div className="h-120 w-200 rounded-full bg-[#0EA5E9] opacity-20 blur-3xl dark:bg-[#010066]/20" />
+        <div className="h-120 w-200 rounded-full bg-primary opacity-20 blur-3xl dark:bg-secondary/20" />
       </div>
 
       <div className="relative mx-auto max-w-3xl">
@@ -20,7 +20,7 @@ const Hero = () => {
 
         <h1 className="mt-4 text-4xl font-semibold leading-tight tracking-tight text-foreground md:text-6xl">
           Ship faster,{" "}
-          <span className="text-[#010066]">together</span>
+          <span className="text-primary">together</span>
         </h1>
 
         <p className="mx-auto mt-2 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
@@ -31,7 +31,7 @@ const Hero = () => {
         <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Link
             href="/register"
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-[#0EA5E9] to-[#010066] px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#010066]/50 sm:w-auto"
+            className="gradient flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-[#010066]/50 sm:w-auto"
           >
             Start for free
             <ArrowRight className="h-4 w-4" />
