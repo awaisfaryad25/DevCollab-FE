@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronLeft, FileText, Menu, X } from "lucide-react";
+import { ChevronLeft, FileText, Menu, PanelLeft, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Logo } from "@/assets";
@@ -62,10 +62,11 @@ const AppSidebar = () => {
       {isMobile && !isMobileOpen && (
         <button
           onClick={toggleSidebar}
-          className="fixed left-4 top-4 z-110 rounded-lg bg-background p-2 shadow-lg border border-border hover:bg-accent transition-colors md:hidden"
+          className="fixed left-4 top-4 z-110 rounded-lg p-1 shadow-lg hover:bg-accent transition-colors md:hidden cursor-pointer"
           aria-label="Toggle sidebar"
         >
-          <Menu className="h-5 w-5" />
+          {/* <Menu className="h-5 w-5" /> */}
+          <PanelLeft className="size-5"/>
         </button>
       )}
 
@@ -75,13 +76,13 @@ const AppSidebar = () => {
           <div
             onClick={() => setIsMobileOpen(false)}
             className={cn(
-              "fixed inset-0 z-[90] bg-muted/40 transition-opacity duration-300 md:hidden",
+              "fixed inset-0 z-[90] bg-black/60 transition-opacity duration-300 md:hidden",
               isMobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
             )}
           />
           <aside
             className={cn(
-              "fixed left-0 top-0 z-[100] h-screen w-64 bg-muted/40 border-r transition-transform duration-300 ease-in-out md:hidden",
+              "fixed left-0 top-0 z-[100] h-screen w-64 bg-background border-r transition-transform duration-300 ease-in-out md:hidden",
               isMobileOpen ? "translate-x-0" : "-translate-x-full"
             )}
           >
@@ -149,10 +150,10 @@ const SidebarContent = ({
       {isMobile && (
         <button
           onClick={toggleSidebar}
-          className="absolute right-4 top-4 rounded-lg p-1 hover:bg-accent transition-colors"
+          className="absolute right-4 top-4 rounded-lg p-1 hover:bg-accent transition-colors cursor-pointer"
           aria-label="Close sidebar"
         >
-          <X className="h-5 w-5" />
+          <PanelLeft className="size-5" />
         </button>
       )}
 
