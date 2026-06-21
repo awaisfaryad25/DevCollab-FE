@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Eye, EyeOff, Loader2, CheckCircle2, ArrowLeft, Lock } from "lucide-react";
+import { Eye, EyeOff, Loader2, CheckCircle2, Lock } from "lucide-react";
 import BackgroundGradient from "@/app/ui/background-gradient";
 import Input from "@/app/ui/Input";
 
@@ -48,18 +48,18 @@ export default function ResetPasswordPage() {
                   label="New Password"
                   type={show ? "text" : "password"}
                   placeholder="••••••••"
-                  className="border-[#0EA5E9]!"
+                  className="border-primary!"
                   leftIcon={<Lock className="size-4" />}
-                  rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
+                  rightIcon={show ? <Eye className="size-4" /> : <EyeOff className="size-4" />}
                   onRightIconClick={() => setShow(!show)}
                 />
                 <Input
                   label="Confirm Password"
                   type={show ? "text" : "password"}
                   placeholder="••••••••"
-                  className="border-[#0EA5E9]!"
+                  className="border-primary!"
                   leftIcon={<Lock className="size-4" />}
-                  rightIcon={show ? <Eye className="h-4 w-4" /> : <EyeOff className="h-4 w-4" />}
+                  rightIcon={show ? <Eye className="size-4" /> : <EyeOff className="size-4" />}
                   onRightIconClick={() => setShow(!show)}
                 />
               </div>
@@ -67,7 +67,7 @@ export default function ResetPasswordPage() {
               <button
                 type="submit"
                 disabled={loading || mismatch || password.length < 8}
-                className="mt-8 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-[#0EA5E9] to-[#010066] hover:bg-linear-to-l from-[#0EA5E9] to-[#010066] py-2.5 text-sm font-medium text-white transition-colors  "
+                className="gradient mt-8 flex w-full items-center justify-center gap-2 rounded-lg py-2.5 text-sm font-medium text-white transition-colors  "
               >
                 {loading && <Loader2 className="h-4 w-4 animate-spin" />}
                 Reset password
@@ -77,7 +77,7 @@ export default function ResetPasswordPage() {
         ) : (
           <div className="text-center">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-50">
-              <CheckCircle2 className="h-6 w-6 text-emerald-600" />
+              <CheckCircle2 className="h-6 w-6 text-success" />
             </div>
             <h2 className="text-lg font-semibold text-foreground">
               Password updated
@@ -87,7 +87,7 @@ export default function ResetPasswordPage() {
             </p>
             <Link
               href="/login"
-              className="mt-6 inline-flex items-center gap-1.5 rounded-lg bg-[#0EA5E9] px-5 py-2.5 text-sm font-medium text-white hover:bg-violet-700"
+              className="mt-6 inline-flex items-center gap-1.5 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white "
             >
               Go to login
             </Link>

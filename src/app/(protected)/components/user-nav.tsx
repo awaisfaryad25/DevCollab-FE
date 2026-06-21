@@ -1,4 +1,5 @@
-import { BadgeCheck, HelpCircle, LogOut, Settings, User, ChevronsUpDown } from 'lucide-react';
+import { BadgeCheck, HelpCircle, LogOut, Settings, User, ChevronsUpDown, ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react'
 
 interface User {
@@ -41,11 +42,21 @@ const UserNav = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  // Close dropdown function to be called when navigating
+  const closeDropdown = () => {
+    setIsDropdownOpen(false);
+  };
+
+  const handleLogout = () => {
+    // Your logout logic here
+    closeDropdown();
+  };
+
   return (
     <div className="relative" ref={dropdownRef}>
       <div className="flex items-center justify-center gap-2 cursor-pointer hover:bg-muted/40 px-3 py-2 rounded-lg transition-colors" onClick={toggleDropdown}>
         {/* Left - Profile Picture or Initials */}
-        <div className="w-10 h-10 rounded-full bg-linear-to-r from-[#0EA5E9] to-[#010066] flex items-center justify-center text-white font-semibold text-sm">
+        <div className="gradient size-10 rounded-full flex items-center justify-center text-white font-semibold text-sm">
           {user.avatar ? (
             <img 
               src={user.avatar} 
@@ -68,22 +79,15 @@ const UserNav = () => {
         </div>
 
         {/* Right - Dropdown Arrow */}
-        <div className="ml-1 hidden md:flex">
-          <svg 
-            className={`w-4 h-4 text-gray-400 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
+        <div className="hidden md:flex">
+          <ChevronsUpDown className='size-4' />
         </div>
       </div>
 
       {/* Dropdown Popup */}
       {isDropdownOpen && (
-        <div className="absolute right-0 mt-2 w-56 bg-background rounded-lg shadow-lg border border-gray-100 py-2 z-100">
-          <div className="px-4 py-3 border-b border-gray-100">
+        <div className="absolute right-0 mt-2 w-56 bg-background rounded-lg shadow-lg border border-border py-2 z-100">
+          <div className="px-4 py-3 border-b border-border">
             <p className="text-sm font-medium ">
               {user.firstName} {user.lastName}
             </p>
@@ -93,23 +97,23 @@ const UserNav = () => {
           </div>
           
           <div className="">
-            <button className="w-full text-left px-4 py-2 text-sm  hover:bg-accent transition-colors flex items-center gap-3 border-b border-gray-100">
+            <Link href="/profile" onClick={closeDropdown} className="w-full text-left px-4 py-2 text-sm  hover:bg-accent transition-colors flex items-center gap-3 border-b border-border cursor-pointer">
               <BadgeCheck className="size-4" />
               Profile
-            </button>
-            <button className="w-full text-left px-4 py-2 text-sm hover:bg-accent transition-colors flex items-center gap-3 border-b border-gray-100">
+            </Link>
+            <Link href="/settings" onClick={closeDropdown} className="w-full text-left px-4 py-2 text-sm hover:bg-accent transition-colors flex items-center gap-3 border-b border-border cursor-pointer">
               <Settings className="size-4" />
               Settings
-            </button>
-            <button className="w-full text-left px-4 py-2 text-sm hover:bg-accent transition-colors flex items-center gap-3">
+            </Link>
+            <Link href="/help" onClick={closeDropdown} className="w-full text-left px-4 py-2 text-sm hover:bg-accent transition-colors flex items-center gap-3 cursor-pointer">
               <HelpCircle className="size-4" />
               Help
-            </button>
+            </Link>
           </div>
           
-          <div className="border-t border-gray-100 ">
-            <button className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-accent transition-colors flex items-center gap-3">
-              <LogOut className="size-4 text-red-500" />
+          <div className="border-t border-border ">
+            <button onClick={handleLogout} className="w-full text-left px-4 py-2 text-sm text-danger hover:bg-accent transition-colors flex items-center gap-3 cursor-pointer">
+              <LogOut className="size-4 text-danger" />
               Sign Out
             </button>
           </div>

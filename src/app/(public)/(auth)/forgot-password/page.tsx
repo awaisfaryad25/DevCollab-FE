@@ -28,13 +28,13 @@ export default function ForgotPasswordPage() {
         {!sent ? (
           <>
             <div className="mb-4">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-violet-50">
-                <Mail className="h-6 w-6 text-violet-600" />
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                <Mail className="h-6 w-6 text-primary" />
               </div>
-              <h1 className="text-xl lg:text-2xl xl:text-3xl font-semibold text-foreground">
+              <h1 className="text-xl lg:text-2xl xl:text-3xl font-semibold">
                 Forgot your password?
               </h1>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-2 text-sm">
                 Enter your email and we'll send you a reset link.
               </p>
             </div>
@@ -42,7 +42,7 @@ export default function ForgotPasswordPage() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-4">
                 <Input label="Email address" 
-                  className="border-[#0EA5E9]!" type="email" 
+                  className="border-primary!" type="email" 
                   placeholder="you@example.com" 
                   leftIcon={<Mail className="size-4" />} required
                   value={email}
@@ -52,7 +52,7 @@ export default function ForgotPasswordPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className=" mt-8 flex w-full items-center justify-center gap-2 rounded-lg bg-linear-to-r from-[#0EA5E9] to-[#010066] hover:bg-linear-to-l from-[#0EA5E9] to-[#010066] py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-60"
+                className="gradient mt-8 flex w-full items-center justify-center gap-2 rounded-lg py-2.5 text-sm font-medium text-white transition-colors disabled:opacity-60"
               >
                 {loading && <Loader2 className="h-4 w-4 animate-spin" />}
                 Send reset link
@@ -62,9 +62,9 @@ export default function ForgotPasswordPage() {
             <div className="mt-2">
               <Link
                 href="/login"
-                className="group inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-[#010066]"
+                className="group inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary"
               >
-                <ArrowLeft className="h-3.5 w-3.5 group-hover:text-[#0EA5E9]" />
+                <ArrowLeft className="h-3.5 w-3.5 group-hover:text-primary" />
                 Back to login
               </Link>
             </div>
@@ -72,13 +72,13 @@ export default function ForgotPasswordPage() {
         ) : (
           /* Success state */
           <div className="text-center">
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-50">
-              <Mail className="h-6 w-6 text-emerald-600" />
+            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-success/10">
+              <Mail className="h-6 w-6 text-success" />
             </div>
-            <h2 className="text-lg font-semibold text-foreground">
+            <h2 className="text-lg font-semibold">
               Check your inbox
             </h2>
-            <p className="mt-2 text-sm text-muted-foreground">
+            <p className="mt-2 text-sm">
               We sent a password reset link to{" "}
               <span className="font-medium text-foreground">{email}</span>.
               It expires in 30 minutes.
@@ -87,18 +87,20 @@ export default function ForgotPasswordPage() {
               Didn't get it?{" "}
               <button
                 onClick={() => setSent(false)}
-                className="text-violet-600 hover:underline"
+                className="text-primary hover:underline"
               >
                 Resend
               </button>
             </p>
-            <Link
-              href="/login"
-              className="mt-6 inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground"
-            >
-              <ArrowLeft className="h-3.5 w-3.5" />
-              Back to login
-            </Link>
+            <div className="mt-2">
+              <Link
+                href="/login"
+                className="group inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary"
+              >
+                <ArrowLeft className="h-3.5 w-3.5 group-hover:text-primary" />
+                Back to login
+              </Link>
+            </div>
           </div>
         )}
       </div>

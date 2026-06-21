@@ -121,8 +121,13 @@ p {
 }
 
 @layer utilities {
+
   .gradient {
     background: var(--gradient);
+  }
+
+  .gradient:hover{
+    background: linear-gradient(to left, var(--primary), var(--secondary));
   }
   
   /* Optional: Different gradient directions */
