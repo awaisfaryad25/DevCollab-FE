@@ -40,7 +40,7 @@ export default function CareersPage() {
       {/* Header */}
       <section className="border-b border-border bg-muted/40 px-4 py-20 text-center">
         <div className="mx-auto max-w-2xl">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-[#010066]">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
             Careers
           </span>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground">
@@ -60,7 +60,7 @@ export default function CareersPage() {
           <ul className="grid gap-3 sm:grid-cols-2">
             {perks.map((perk) => (
               <li key={perk} className="flex items-center gap-3 text-sm text-foreground">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-violet-100 text-[#010066] text-xs">✓</span>
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-violet-100 text-secondary text-xs">✓</span>
                 {perk}
               </li>
             ))}
@@ -80,11 +80,11 @@ export default function CareersPage() {
                 className="group flex items-center justify-between rounded-xl border border-border bg-background p-5 transition-shadow hover:shadow-md"
               >
                 <div>
-                  <p className="text-sm font-semibold text-foreground group-hover:text-[#010066]">
+                  <p className="text-sm font-semibold text-foreground group-hover:text-secondary">
                     {role.title}
                   </p>
                   <div className="mt-1.5 flex items-center gap-3 text-xs text-muted-foreground">
-                    <span className="rounded-full bg-violet-50 px-2 py-0.5 text-[#010066]">
+                    <span className="rounded-full bg-violet-50 px-2 py-0.5 text-secondary">
                       {role.team}
                     </span>
                     <span className="flex items-center gap-1">
@@ -95,13 +95,13 @@ export default function CareersPage() {
                     </span>
                   </div>
                 </div>
-                <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-[#010066]" />
+                <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-secondary" />
               </Link>
             ))}
           </div>
           <p className="mt-8 text-sm text-muted-foreground">
             Don't see your role?{" "}
-            <Link href="/contact" className="text-[#010066] hover:underline">
+            <Link href="/contact" className="text-secondary hover:underline">
               Send us a message
             </Link>{" "}
             — we're always interested in exceptional people.

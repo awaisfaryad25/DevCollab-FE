@@ -23,7 +23,7 @@ export default function ContactPage() {
       {/* Header */}
       <section className="border-b border-border bg-muted/40 px-4 py-20 text-center">
         <div className="mx-auto max-w-xl">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-[#010066]">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
             Contact
           </span>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground">
@@ -45,7 +45,7 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div className="flex gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-violet-50">
-                  <Mail className="h-5 w-5 text-[#010066]" />
+                  <Mail className="h-5 w-5 text-secondary" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-foreground">Email us</p>
@@ -59,7 +59,7 @@ export default function ContactPage() {
               </div>
               <div className="flex gap-4">
                 <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-violet-50">
-                  <MessageSquare className="h-5 w-5 text-[#010066]" />
+                  <MessageSquare className="h-5 w-5 text-secondary" />
                 </div>
                 <div>
                   <p className="text-sm font-medium text-foreground">Support</p>
@@ -87,7 +87,7 @@ export default function ContactPage() {
                   </label>
                   <select
                     id="topic"
-                    className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#010066] focus:ring-offset-1"
+                    className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-1"
                   >
                     <option>General enquiry</option>
                     <option>Support</option>
@@ -106,14 +106,14 @@ export default function ContactPage() {
                     required
                     rows={4}
                     placeholder="Tell us what's on your mind..."
-                    className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#010066] focus:ring-offset-1 resize-none"
+                    className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-1 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#010066] py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#010066] disabled:opacity-60"
+                  className="flex w-full items-center justify-center gap-2 rounded-lg bg-secondary py-2.5 text-sm font-medium text-white transition-colors hover:bg-secondary disabled:opacity-60"
                 >
                   {loading && <Loader2 className="h-4 w-4 animate-spin" />}
                   Send message
@@ -122,7 +122,7 @@ export default function ContactPage() {
             ) : (
               <div className="flex flex-col items-center py-8 text-center">
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-50">
-                  <CheckCircle2 className="h-6 w-6 text-emerald-600" />
+                  <CheckCircle2 className="h-6 w-6 text-success" />
                 </div>
                 <h3 className="text-base font-semibold text-foreground">
                   Message sent!
