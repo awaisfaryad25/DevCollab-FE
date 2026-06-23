@@ -68,7 +68,7 @@ function RoleBadge({ role }: { role: string }) {
     <span className={cn(
       "rounded-full px-2 py-0.5 text-[10px] font-medium",
       role === "admin"
-        ? "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300"
+        ? "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-warning"
         : "bg-muted text-muted-foreground"
     )}>
       {role}
@@ -106,7 +106,7 @@ function ActionsMenu({ user, onView }: { user: User; onView: () => void }) {
               <ShieldCheck className="h-3.5 w-3.5" /> Make admin
             </button>
             <div className="my-1 h-px bg-border" />
-            <button className="flex w-full items-center gap-2 px-3 py-2 text-xs text-red-500 hover:bg-red-50 dark:hover:bg-red-950">
+            <button className="flex w-full items-center gap-2 px-3 py-2 text-xs text-danger hover:bg-danger/10 ">
               <UserX className="h-3.5 w-3.5" /> Suspend user
             </button>
           </div>
@@ -264,7 +264,7 @@ const Users = () => {
               className={cn(
                 "rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors",
                 planFilter === p
-                  ? "border-violet-600 bg-violet-600 text-white"
+                  ? "border-primary bg-primary text-white"
                   : "border-border bg-background text-foreground hover:bg-accent"
               )}
             >{p}</button>
@@ -277,7 +277,7 @@ const Users = () => {
               className={cn(
                 "rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors",
                 statusFilter === s
-                  ? "border-violet-600 bg-violet-600 text-white"
+                  ? "border-primary bg-primary text-white"
                   : "border-border bg-background text-foreground hover:bg-accent"
               )}
             >{s}</button>
@@ -349,7 +349,7 @@ const Users = () => {
             <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent disabled:opacity-40" disabled>
               <ChevronLeft className="h-4 w-4" />
             </button>
-            <span className="rounded-md bg-violet-600 px-2.5 py-1 text-xs font-medium text-white">1</span>
+            <span className="rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-white">1</span>
             <button className="rounded-md px-2.5 py-1 text-xs text-muted-foreground hover:bg-accent">2</button>
             <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent">
               <ChevronRight className="h-4 w-4" />
