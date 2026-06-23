@@ -7,6 +7,7 @@ import HowItWorks from './components/home/HowItWorks'
 import Pricing from './components/home/Pricing'
 import Testimonials from './components/home/Testimonials'
 import CTABanner from './components/home/CTABanner'
+import Team from './components/Team'
 
 const LandingPage = () => {
 
@@ -19,6 +20,7 @@ const LandingPage = () => {
         <HowItWorks />
         <Pricing />
         <Testimonials />
+        <Team/>
         <CTABanner />
       </main>
     </>
