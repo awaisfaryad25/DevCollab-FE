@@ -142,4 +142,14 @@ p {
   .gradient-diagonal {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
   }
+ .gradient-transparent {
+  background: linear-gradient(
+    to bottom,
+    rgb(from var(--primary) r g b / 35%),
+    transparent
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
 }

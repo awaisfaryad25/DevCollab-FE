@@ -74,18 +74,18 @@ export default function TeamCarousel() {
   };
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#f5f5f5] px-4">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-muted/40 px-4">
       {/* Background Title */}
-      <h1 className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-[7.5rem] font-black uppercase tracking-tight text-transparent bg-gradient-to-b from-[#082A7B]/35 to-transparent bg-clip-text">
+      <h1 className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-[7.5rem] font-black uppercase tracking-tight text-transparent gradient-transparent! bg-clip-text">
         OUR TEAM
       </h1>
 
       {/* Carousel */}
-      <div className="relative mt-20 h-[450px] w-full max-w-[1200px]">
+      <div className="relative mt-20 h-112 w-full max-w-7xl">
         {/* Left */}
         <button
           onClick={() => updateCarousel(currentIndex - 1)}
-          className="absolute left-4 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-[#082A7B]/60 text-white transition hover:scale-110"
+          className="absolute left-4 top-1/2 z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full  text-white transition hover:scale-110 gradient"
         >
           <ChevronLeft size={20} />
         </button>
@@ -122,7 +122,7 @@ export default function TeamCarousel() {
         {/* Right */}
         <button
           onClick={() => updateCarousel(currentIndex + 1)}
-          className="absolute right-4 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-[#082A7B]/60 text-white transition hover:scale-110"
+          className="absolute right-4 top-1/2 z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full gradient text-white transition hover:scale-110"
         >
           <ChevronRight size={20} />
         </button>
@@ -130,14 +130,14 @@ export default function TeamCarousel() {
 
       {/* Member Info */}
       <div className="mt-10 text-center">
-        <h2 className="relative inline-block text-4xl font-bold text-[#082A7B] md:text-5xl">
+        <h2 className="relative inline-block text-4xl font-bold  md:text-5xl">
           {teamMembers[currentIndex].name}
 
-          <span className="absolute top-full right-[calc(100%+20px)] h-[2px] w-24 bg-[#082A7B]" />
-          <span className="absolute top-full left-[calc(100%+20px)] h-[2px] w-24 bg-[#082A7B]" />
+          <span className="absolute top-full right-[calc(100%+20px)] h-0.5 w-32 bg-secondary rounded-full" />
+          <span className="absolute top-full left-[calc(100%+20px)] h-0.5 w-32 bg-secondary rounded-full" />
         </h2>
 
-        <p className="mt-2 text-lg uppercase tracking-[0.15em] text-[#848696]">
+        <p className="mt-2 text-lg uppercase tracking-[0.15em] ">
           {teamMembers[currentIndex].role}
         </p>
       </div>
@@ -148,10 +148,8 @@ export default function TeamCarousel() {
           <button
             key={index}
             onClick={() => updateCarousel(index)}
-            className={`h-3 w-3 rounded-full transition-all ${
-              currentIndex === index
-                ? "scale-125 bg-[#082A7B]"
-                : "bg-[#082A7B]/20"
+            className={`size-3 rounded-full transition-all cursor-pointer ${
+              currentIndex === index ? "scale-125 bg-secondary" : "bg-text"
             }`}
           />
         ))}
