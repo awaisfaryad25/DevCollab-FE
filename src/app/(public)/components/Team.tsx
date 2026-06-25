@@ -2,45 +2,26 @@
 
 import { useState } from "react";
 import Image from "next/image";
+// import { StaticImageData } from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { 
+  Founder, BackendEngineer, DataAnalyst, LeadDeveloper, ProductManager, SoftwareEngineer, UXDesigner 
+} from "@/assets";
 
 interface TeamMember {
   name: string;
   role: string;
-  image: string;
+  image: any;
 }
 
 const teamMembers: TeamMember[] = [
-  {
-    name: "Emily Kim",
-    role: "Founder",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e",
-  },
-  {
-    name: "Michael Steward",
-    role: "Creative Director",
-    image: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5",
-  },
-  {
-    name: "Emma Rodriguez",
-    role: "Lead Developer",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
-  },
-  {
-    name: "Julia Gimmel",
-    role: "UX Designer",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-  },
-  {
-    name: "Lisa Anderson",
-    role: "Marketing Manager",
-    image: "https://images.unsplash.com/photo-1655249481446-25d575f1c054",
-  },
-  {
-    name: "James Wilson",
-    role: "Product Manager",
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7",
-  },
+  { name: "Emily Kim", role: "Founder", image: Founder, },
+  { name: "David Chen", role: "Backend Engineer", image: BackendEngineer },
+  { name: "Emma Rodriguez", role: "Lead Developer", image: LeadDeveloper },
+  { name: "Julia Gimmel", role: "UX Designer", image: UXDesigner },
+  { name: "Lisa Anderson", role: "Software Engineer", image: SoftwareEngineer },
+  { name: "James Wilson", role: "Product Manager", image: ProductManager },
+  { name: "James Wilson", role: "Data Analyst", image: DataAnalyst },
 ];
 
 export default function TeamCarousel() {
@@ -76,7 +57,7 @@ export default function TeamCarousel() {
   return (
     <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-muted/40 px-4">
       {/* Background Title */}
-      <h1 className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-[7.5rem] font-black uppercase tracking-tight text-transparent gradient-transparent! bg-clip-text">
+      <h1 className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-4xl md:5xl 2xl:text-[7rem] font-black uppercase tracking-tight text-transparent gradient-transparent! bg-clip-text">
         OUR TEAM
       </h1>
 

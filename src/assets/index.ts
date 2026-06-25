@@ -1,2 +1,11 @@
 export { default as Logo1 } from "./logo/dc.svg";
 export { default as Logo } from "./logo/LogoDC.svg";
+
+// Team Member Img
+export { default as Founder } from "./team/founder.jpg";
+export { default as BackendEngineer } from "./team/BackendEngineer.jpg";
+export { default as DataAnalyst } from "./team/DataAnalyst.png";
+export { default as LeadDeveloper } from "./team/LeadDeveloper.jpg";
+export { default as ProductManager } from "./team/ProductManager.jpg";
+export { default as SoftwareEngineer } from "./team/SoftwareEngineer.jpg";
+export { default as UXDesigner } from "./team/UXDesigner.jpg";
