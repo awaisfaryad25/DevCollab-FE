@@ -2,8 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Logo } from "@/assets";
+import MainLogo from "./MainLogo";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,16 +43,7 @@ const NavBar = () => {
         <div className="w-full max-w-7xl mx-auto">
           <div className="flex items-center justify-between h-16">
             <div className="lg:pr-10">
-            <Link href="/" className="flex items-center gap-2">
-              <Image
-                src={Logo}
-                className="w-10 4xl:w-[40px] h-7 4xl:h-[28px]"
-                alt="hexa-rgb"
-              />
-              <span className="font-medium text-lg md:text-xl text-heading cursor-pointer">
-                DevCollab
-              </span>
-            </Link>
+            <MainLogo/>
             </div>
 
             <div className="hidden md:flex items-center justify-center transform space-x-4 lg:space-x-6">

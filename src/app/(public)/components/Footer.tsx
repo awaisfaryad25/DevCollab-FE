@@ -1,9 +1,8 @@
 // components/footer/Footer.tsx
 import Link from "next/link";
-import Image from "next/image";
-import { Logo } from "@/assets";
 import { ThemeToggle } from "@/app/ui/theme-toggle";
 import SocialLinks from "./SocialLinks";
+import MainLogo from "./MainLogo";
 
 const footerLinks = {
   Product: [
@@ -31,18 +30,9 @@ const Footer = () => {
       <div className="w-full max-w-7xl mx-auto">
         <div className="grid gap-12 md:grid-cols-5">
           {/* Brand */}
-          <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2">
-              <Image
-                src={Logo}
-                className="w-9 4xl:w-[40px] h-6 4xl:h-[28px]"
-                alt="hexa-rgb"
-              />
-              <span className="font-medium text-xl 4xl:text-[26px] text-heading">
-                DevCollab
-              </span>
-            </Link>
-            <p className="mt-2 mb-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
+          <div className="md:col-span-2 space-y-3">
+            <MainLogo/>
+            <p className="mb-6 max-w-xs text-sm leading-relaxed text-muted-foreground">
               Real-time project management for software teams. Ship faster,
               together.
             </p>
