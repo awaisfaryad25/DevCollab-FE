@@ -4,7 +4,7 @@ const DashboardPreview = () => {
   return (
     <div>
       <div className="relative mx-auto mt-16 max-w-5xl">
-        <div className="overflow-hidden rounded-xl border border-border bg-muted shadow-2xl shadow-violet-100 dark:shadow-violet-900/20">
+        <div className="overflow-hidden rounded-xl border border-border bg-muted shadow-2xl shadow-primary dark:shadow-secondary/20">
           
           {/* Fake browser bar */}
           <div className="flex items-center gap-2 border-b border-border bg-background px-4 py-3">
