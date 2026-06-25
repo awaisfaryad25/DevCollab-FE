@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Logo } from "@/assets";
 import { sidebarData } from "@/constants/sidebar-navigation";
+import SidebarLogo from "./SidebarLogo";
 
 const AppSidebar = () => {
   const pathname = usePathname();
@@ -158,27 +159,7 @@ const SidebarContent = ({
       )}
 
       {/* Logo */}
-      <Link
-        href="/dashboard"
-        className={cn(
-          "flex items-center gap-2 mb-8",
-          isCollapsed && !isMobile ? "justify-center" : "justify-center"
-        )}
-      >
-        <Image
-          src={Logo}
-          className={cn(
-            "h-6 4xl:h-[28px]",
-            isCollapsed && !isMobile ? "w-6" : "w-9 4xl:w-[40px]"
-          )}
-          alt="DevCollab-rgb"
-        />
-        {(!isCollapsed || isMobile) && (
-          <p className="font-medium 4xl:text-lg text-dark-gray whitespace-nowrap">
-            DevCollab
-          </p>
-        )}
-      </Link>
+      <SidebarLogo isCollapsed={isCollapsed} isMobile={isMobile} />
 
       {/* Nav sections */}
       <nav className="flex-1 space-y-4 overflow-y-auto">
