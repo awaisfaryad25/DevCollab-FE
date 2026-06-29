@@ -16,14 +16,14 @@ const tasks = [
 ];
 
 const priorityColors: Record<string, string> = {
-  High: "bg-red-100 text-red-600",
-  Medium: "bg-amber-100 text-amber-700",
+  High: "bg-danger/10 text-danger",
+  Medium: "bg-warning/10 text-warning",
   Low: "bg-emerald-100 text-emerald-700",
 };
 
 const statusColors: Record<string, string> = {
-  "In progress": "bg-blue-100 text-blue-700",
-  Completed: "bg-emerald-100 text-emerald-700",
+  "In progress": "bg-primary/10 text-primary",
+  Completed: "bg-success/10 text-success",
   Todo: "bg-muted text-muted-foreground",
 };
 
@@ -42,10 +42,10 @@ const Tasks = () => {
   });
 
   return (
-     <div className="space-y-6 p-6">
+    <div className="space-y-6 p-6">
       <div>
-        <h1 className="text-xl font-semibold text-foreground">Tasks</h1>
-        <p className="mt-0.5 text-sm text-muted-foreground">{tasks.length} tasks across all projects</p>
+        <h1 className="text-xl font-semibold">Tasks</h1>
+        <p className="mt-0.5 text-sm ">{tasks.length} tasks across all projects</p>
       </div>
 
       {/* Stats row */}
@@ -73,14 +73,14 @@ const Tasks = () => {
           {["All", "Todo", "In progress", "Completed"].map((s) => (
             <button key={s} onClick={() => setStatusFilter(s)}
               className={cn("rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors",
-                statusFilter === s ? "border-violet-600 bg-violet-600 text-white" : "border-border bg-background text-foreground hover:bg-accent"
+                statusFilter === s ? "border-primary bg-primary text-white" : "border-border bg-background text-foreground hover:bg-accent"
               )}>{s}</button>
           ))}
           <div className="h-6 w-px bg-border self-center" />
           {["All", "High", "Medium", "Low"].map((p) => (
             <button key={p} onClick={() => setPriorityFilter(p)}
               className={cn("rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors",
-                priorityFilter === p ? "border-violet-600 bg-violet-600 text-white" : "border-border bg-background text-foreground hover:bg-accent"
+                priorityFilter === p ? "border-primary bg-primary text-white" : "border-border bg-background text-foreground hover:bg-accent"
               )}>{p}</button>
           ))}
         </div>
@@ -122,9 +122,9 @@ const Tasks = () => {
         <div className="flex items-center justify-between border-t border-border px-4 py-3">
           <p className="text-xs text-muted-foreground">Showing {filtered.length} of {tasks.length}</p>
           <div className="flex items-center gap-1">
-            <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent disabled:opacity-40" disabled><ChevronLeft className="h-4 w-4" /></button>
-            <span className="rounded-md bg-violet-600 px-2.5 py-1 text-xs font-medium text-white">1</span>
-            <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent"><ChevronRight className="h-4 w-4" /></button>
+            <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent disabled:opacity-40" disabled><ChevronLeft className="size-4" /></button>
+            <span className="rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-white">1</span>
+            <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent"><ChevronRight className="size-4" /></button>
           </div>
         </div>
       </div>
