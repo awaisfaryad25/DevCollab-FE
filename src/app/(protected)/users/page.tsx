@@ -123,11 +123,11 @@ function UserDrawer({ user, onClose }: { user: User; onClose: () => void }) {
     <>
       {/* backdrop */}
       <div
-        className="fixed inset-0 z-30 bg-black/30 backdrop-blur-sm"
+        className="fixed min-h-screen h-full inset-0 z-90 bg-background/10 backdrop-blur-[2px]"
         onClick={onClose}
       />
       {/* drawer */}
-      <div className="fixed right-0 top-0 z-40 h-full w-80 border-l border-border bg-background shadow-xl">
+      <div className="fixed right-0 top-0 z-99 h-full w-80 border-l border-border bg-background shadow-xl">
         <div className="flex h-full flex-col">
           {/* header */}
           <div className="flex items-center justify-between border-b border-border p-4">
@@ -214,7 +214,7 @@ const Users = () => {
   });
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-6">
 
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

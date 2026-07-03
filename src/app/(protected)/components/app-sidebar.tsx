@@ -138,7 +138,7 @@ const SidebarContent = ({
         <button
           onClick={toggleSidebar}
           className={cn(
-            "absolute -right-3 top-5 z-90 rounded-full border border-border bg-background p-1 hover:bg-accent transition-colors",
+            "absolute -right-3 top-5 z-60 rounded-full border border-border bg-background p-1 hover:bg-accent transition-colors",
             isCollapsed ? "rotate-0" : "rotate-180"
           )}
           aria-label="Toggle sidebar"
