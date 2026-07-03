@@ -156,7 +156,7 @@ const maxBar = Math.max(...weeklySignups.map((d) => d.value));
 const Dashboard = () => {
   return (
     <>
-      <div className="space-y-6 p-4 lg:p-6">
+      <div className="space-y-6">
         {/* Page title */}
         <div>
           <h1 className="text-xl font-semibold">Overview</h1>

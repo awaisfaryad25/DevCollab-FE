@@ -31,7 +31,7 @@ const Projects = () => {
   });
 
   return (
-    <div className="space-y-6 p-6">
+    <div className="space-y-6">
       <div>
         <h1 className="text-xl font-semibold text-foreground">Projects</h1>
         <p className="mt-0.5 text-sm text-muted-foreground">{projects.length} projects across all workspaces</p>
