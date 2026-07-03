@@ -1,0 +1,63 @@
+.clock {
+  --size: 3vw;
+  --w: 47%;
+  --h: 3px;
+
+  position: relative;
+  width: var(--size);
+  height: var(--size);
+
+  border-radius: 9999px;
+  flex-shrink: 0;
+
+  border: 2px solid white;
+
+  background: linear-gradient(225deg, #d0d0d0 10%, white);
+
+  box-shadow:
+    -2px 2px 6px #d0d0d0,
+     2px -2px 6px white;
+}
+
+.clock::before,
+.clock::after {
+  content: "";
+
+  position: absolute;
+
+  top: calc(50% - var(--h) * .5);
+  left: 50%;
+
+  width: var(--w);
+  height: var(--h);
+
+  background: black;
+
+  border-radius: 999px;
+
+  transform-origin: 0% 50%;
+
+  transition: calc(var(--dur) * 1s) ease-in-out;
+}
+
+.clock::before {
+  transform: rotate(calc(var(--hour-angle) * 1deg));
+}
+
+.clock::after {
+  transform: rotate(calc(var(--minute-angle) * 1deg));
+}
+
+@media (max-width:700px) {
+  .clock {
+    --h:2px;
+    border:1px solid white;
+  }
+}
+
+@media (max-width:500px) {
+  .clock {
+    --h:1px;
+    --w:50%;
+  }
+}

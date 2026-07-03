@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Users, Zap, ShieldCheck } from "lucide-react";
+// import NeumorphicInputs from "@/app/ui/NeumorphicInputs";
+// import ClockDisplay from "@/app/ui/clock/ClockDisplay";
 
 const values = [
   {
@@ -109,6 +111,10 @@ export default function AboutPage() {
           See open roles <ArrowRight className="h-4 w-4" />
         </Link>
       </section>
+
+
+      {/* <NeumorphicInputs/> */}
+      {/* <ClockDisplay /> */}
     </main>
   );
 }
