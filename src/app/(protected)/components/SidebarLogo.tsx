@@ -22,9 +22,9 @@ const SidebarLogo = ({ isCollapsed, isMobile }: { isCollapsed: boolean; isMobile
           alt="DevCollab-rgb"
         />
         {(!isCollapsed || isMobile) && (
-          <p className="font-medium 4xl:text-lg text-dark-gray whitespace-nowrap">
+          <span className="font-medium 4xl:text-lg text-heading! whitespace-nowrap">
             DevCollab
-          </p>
+          </span>
         )}
       </Link>
     </div>
