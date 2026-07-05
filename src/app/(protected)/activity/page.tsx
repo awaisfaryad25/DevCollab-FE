@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Search, UserPlus, CreditCard, ShieldAlert, Building2, LogIn, Trash2, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
+import SearchInput from "@/app/ui/search-input";
 
 const allActivity = [
   { id: 1, type: "signup", icon: UserPlus, color: "text-violet-600 bg-violet-50", user: "Ali Raza", email: "ali@example.com", action: "Signed up via Google OAuth", time: "2m ago", date: "Jun 14, 2026" },
@@ -42,16 +43,11 @@ const Activity = () => {
 
       {/* Filters */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <input
-            type="text"
-            placeholder="Search by user or action..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-lg border border-border bg-background py-2.5 pl-9 pr-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-1"
-          />
-        </div>
+        <SearchInput
+          value={search}
+          onChange={setSearch}
+          placeholder="Search by user or action..."
+        />
         <div className="flex flex-wrap gap-1.5">
           {typeFilters.map((t) => (
             <button

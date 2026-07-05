@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Search, MoreHorizontal, ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import SearchInput from "@/app/ui/search-input";
 
 const tasks = [
   { id: "1", title: "Set up Socket.io server", project: "DevCollab Web App", assignee: "Ali Raza", priority: "High", status: "In progress", due: "Jun 20, 2026" },
@@ -64,11 +65,11 @@ const Tasks = () => {
 
       {/* Filters */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <input type="text" placeholder="Search tasks or assignees..." value={search} onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-lg border border-border bg-background py-2.5 pl-9 pr-3 text-sm text-foreground placeholder:text-muted-foreground outline-none" />
-        </div>
+        <SearchInput
+          value={search}
+          onChange={setSearch}
+          placeholder="Search tasks or assignees..."
+        />
         <div className="flex gap-2 flex-wrap">
           {["All", "Todo", "In progress", "Completed"].map((s) => (
             <button key={s} onClick={() => setStatusFilter(s)}

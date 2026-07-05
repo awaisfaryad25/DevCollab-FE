@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Search, Download, ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
+import SearchInput from "@/app/ui/search-input";
 
 // ─── MOCK DATA ────────────────────────────────────────────────────────────────
 
@@ -71,16 +72,11 @@ const Subscriptions = () => {
 
       {/* Filters */}
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-        <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-          <input
-            type="text"
-            placeholder="Search subscriber..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full rounded-lg border border-border bg-background py-2.5 pl-9 pr-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-1"
-          />
-        </div>
+        <SearchInput
+          value={search}
+          onChange={setSearch}
+          placeholder="Search subscribers..."
+        />
         <div className="flex gap-2">
           {["All", "Active", "Cancelled", "Past due"].map((s) => (
             <button
