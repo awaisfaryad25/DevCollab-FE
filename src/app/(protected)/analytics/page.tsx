@@ -33,7 +33,7 @@ const signupMonths = [
 
 const planBreakdown = [
   { plan: "Free", count: 2403, pct: 85, color: "bg-muted" },
-  { plan: "Pro", count: 438, pct: 15, color: "bg-violet-500" },
+  { plan: "Pro", count: 438, pct: 15, color: "bg-primary" },
 ];
 
 const topWorkspaces = [
@@ -67,7 +67,7 @@ const Analytics = () => {
               onClick={() => setRange(r)}
               className={cn(
                 "rounded-md px-3 py-1 text-xs font-medium transition-colors",
-                range === r ? "bg-violet-600 text-white" : "text-muted-foreground hover:text-foreground"
+                range === r ? "bg-primary text-white" : "text-muted-foreground hover:text-foreground"
               )}
             >
               {r}
@@ -172,7 +172,7 @@ const Analytics = () => {
           <div className="divide-y divide-border">
             {topWorkspaces.map((w) => (
               <div key={w.name} className="flex items-center gap-3 py-2.5">
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-violet-50 text-xs font-bold text-violet-600">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-xs font-bold text-primary">
                   {w.name[0]}
                 </div>
                 <div className="min-w-0 flex-1">
@@ -180,7 +180,7 @@ const Analytics = () => {
                   <p className="text-xs text-muted-foreground">{w.members} members · {w.projects} projects</p>
                 </div>
                 <span className={cn("rounded-full px-2 py-0.5 text-[10px] font-medium",
-                  w.plan === "Pro" ? "bg-violet-100 text-violet-700" : "bg-muted text-muted-foreground"
+                  w.plan === "Pro" ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
                 )}>
                   {w.plan}
                 </span>

@@ -83,7 +83,7 @@ const Subscriptions = () => {
               key={s}
               onClick={() => setStatusFilter(s)}
               className={cn("rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors",
-                statusFilter === s ? "border-violet-600 bg-violet-600 text-white" : "border-border bg-background text-foreground hover:bg-accent"
+                statusFilter === s ? "border-primary bg-primary text-white" : "border-border bg-background text-foreground hover:bg-accent"
               )}
             >
               {s}
@@ -122,7 +122,7 @@ const Subscriptions = () => {
                     </div>
                   </td>
                   <td className="px-4 py-3">
-                    <span className="rounded-full bg-violet-100 px-2 py-0.5 text-[10px] font-medium text-violet-700">{s.plan}</span>
+                    <span className="rounded-full bg-primary/10 px-2 py-0.5 text-[10px] font-medium text-primary">{s.plan}</span>
                   </td>
                   <td className="px-4 py-3"><StatusBadge status={s.status} /></td>
                   <td className="px-4 py-3 text-sm font-medium text-foreground">{s.amount}</td>
@@ -144,7 +144,7 @@ const Subscriptions = () => {
             <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent" disabled>
               <ChevronLeft className="h-4 w-4" />
             </button>
-            <span className="rounded-md bg-violet-600 px-2.5 py-1 text-xs font-medium text-white">1</span>
+            <span className="rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-white">1</span>
             <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent">
               <ChevronRight className="h-4 w-4" />
             </button>

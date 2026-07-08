@@ -104,10 +104,10 @@ const Notifications = () => {
                     onClick={() => setType(key)}
                     className={cn(
                       "flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-medium capitalize transition-colors",
-                      type === key ? "border-violet-600 bg-violet-50 text-violet-700" : "border-border bg-background text-foreground hover:bg-accent"
+                      type === key ? "border-primary bg-primary text-white" : "border-border bg-background text-foreground hover:bg-accent"
                     )}
                   >
-                    <Icon className={cn("h-3.5 w-3.5", type === key ? "text-violet-600" : iconColor)} />
+                    <Icon className={cn("h-3.5 w-3.5", type === key ? "text-primary" : iconColor)} />
                     {key}
                   </button>
                 ))}
@@ -134,7 +134,7 @@ const Notifications = () => {
             <button
               onClick={handleSend}
               disabled={!title || !message || sending}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-sm font-medium text-white transition-colors hover:bg-violet-700 disabled:opacity-50"
             >
               {sending ? (
                 <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
@@ -145,7 +145,7 @@ const Notifications = () => {
             </button>
 
             {sent && (
-              <div className="flex items-center gap-2 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-700">
+              <div className="flex items-center gap-2 rounded-lg bg-emerald-50 p-3 text-sm text-success">
                 <CheckCircle2 className="h-4 w-4 shrink-0" />
                 Notification sent successfully!
               </div>
@@ -208,11 +208,11 @@ const Notifications = () => {
                   <p className="mt-0.5 text-xs text-muted-foreground">{n.message}</p>
                   <div className="mt-1.5 flex flex-wrap items-center gap-3 text-[10px] text-muted-foreground">
                     <span className="flex items-center gap-1"><Users className="h-3 w-3" />{n.audience}</span>
-                    <span className="flex items-center gap-1"><CheckCircle2 className="h-3 w-3 text-emerald-500" />{n.reached.toLocaleString()} reached</span>
+                    <span className="flex items-center gap-1"><CheckCircle2 className="h-3 w-3 text-success" />{n.reached.toLocaleString()} reached</span>
                     <span>{n.sentAt}</span>
                   </div>
                 </div>
-                <button className="shrink-0 rounded-md p-1.5 text-muted-foreground hover:bg-red-50 hover:text-red-500">
+                <button className="shrink-0 rounded-md p-1.5 text-muted-foreground hover:bg-red-50 hover:text-danger">
                   <Trash2 className="h-3.5 w-3.5" />
                 </button>
               </div>

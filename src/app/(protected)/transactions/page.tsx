@@ -36,8 +36,8 @@ const transactions = [
 ];
 
 const typeIcon: Record<string, React.ReactNode> = {
-  charge: <ArrowDownLeft className="h-3.5 w-3.5 text-emerald-600" />,
-  refund: <ArrowUpRight className="h-3.5 w-3.5 text-red-500" />,
+  charge: <ArrowDownLeft className="h-3.5 w-3.5 text-success" />,
+  refund: <ArrowUpRight className="h-3.5 w-3.5 text-danger" />,
 };
 
 const statusStyle: Record<string, string> = {
@@ -86,9 +86,9 @@ const Transactions = () => {
             <p className="mt-1.5 text-2xl font-semibold text-foreground">{c.value}</p>
             <div className="mt-2 flex items-center gap-1.5">
               {c.up
-                ? <TrendingUp className="h-3.5 w-3.5 text-emerald-500" />
-                : <TrendingDown className="h-3.5 w-3.5 text-red-500" />}
-              <span className={cn("text-xs font-medium", c.up ? "text-emerald-600" : "text-red-500")}>
+                ? <TrendingUp className="h-3.5 w-3.5 text-success" />
+                : <TrendingDown className="h-3.5 w-3.5 text-danger" />}
+              <span className={cn("text-xs font-medium", c.up ? "text-success" : "text-danger")}>
                 {c.change}
               </span>
               <span className="text-xs text-muted-foreground">vs last month</span>
@@ -108,14 +108,14 @@ const Transactions = () => {
           {["All", "charge", "refund"].map((t) => (
             <button key={t} onClick={() => setTypeFilter(t)}
               className={cn("rounded-lg border px-3 py-1.5 text-xs font-medium capitalize transition-colors",
-                typeFilter === t ? "border-violet-600 bg-violet-600 text-white" : "border-border bg-background text-foreground hover:bg-accent"
+                typeFilter === t ? "border-primary bg-primary text-white" : "border-border bg-background text-foreground hover:bg-accent"
               )}>{t}</button>
           ))}
           <div className="h-5 w-px self-center bg-border" />
           {["All", "succeeded", "pending", "failed", "refunded"].map((s) => (
             <button key={s} onClick={() => setStatusFilter(s)}
               className={cn("rounded-lg border px-3 py-1.5 text-xs font-medium capitalize transition-colors",
-                statusFilter === s ? "border-violet-600 bg-violet-600 text-white" : "border-border bg-background text-foreground hover:bg-accent"
+                statusFilter === s ? "border-primary bg-primary text-white" : "border-border bg-background text-foreground hover:bg-accent"
               )}>{s}</button>
           ))}
         </div>
@@ -154,7 +154,7 @@ const Transactions = () => {
                     </div>
                   </td>
                   <td className={cn("px-4 py-3 text-sm font-semibold",
-                    t.type === "charge" ? "text-emerald-600" : "text-red-500"
+                    t.type === "charge" ? "text-success" : "text-danger"
                   )}>{t.amount}</td>
                   <td className="px-4 py-3">
                     <span className={cn("rounded-full px-2 py-0.5 text-[10px] font-medium capitalize", statusStyle[t.status])}>
@@ -173,7 +173,7 @@ const Transactions = () => {
           <p className="text-xs text-muted-foreground">Showing {filtered.length} of {transactions.length}</p>
           <div className="flex items-center gap-1">
             <button disabled className="rounded-md p-1.5 text-muted-foreground hover:bg-accent disabled:opacity-40"><ChevronLeft className="h-4 w-4" /></button>
-            <span className="rounded-md bg-violet-600 px-2.5 py-1 text-xs font-medium text-white">1</span>
+            <span className="rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-white">1</span>
             <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent"><ChevronRight className="h-4 w-4" /></button>
           </div>
         </div>

@@ -71,12 +71,12 @@ function Toggle({ defaultChecked, label }: { defaultChecked?: boolean; label: st
         onClick={() => setOn(!on)}
         className={cn(
           "relative h-5 w-9 rounded-full transition-colors",
-          on ? "bg-violet-600" : "bg-muted"
+          on ? "bg-primary" : "bg-muted"
         )}
       >
         <span className={cn(
-          "absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform",
-          on ? "translate-x-4" : "translate-x-0.5"
+          "absolute top-0.5 size-4 rounded-full bg-white shadow transition-transform",
+          on ? "translate-x-0" : "-translate-x-4"
         )} />
       </button>
       <span className="text-sm text-foreground">{label}</span>
@@ -97,16 +97,15 @@ const Settings = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 overflow-x-auto border-b border-border pb-0">
+      <div className="flex gap-1 overflow-x-auto pb-0">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
             className={cn(
               "shrink-0 border-b-2 px-4 py-2.5 text-sm font-medium transition-colors",
-              activeTab === tab
-                ? "border-violet-600 text-violet-600"
-                : "border-transparent text-muted-foreground hover:text-foreground"
+              activeTab === tab ? " text-primary border-primary!" : " text-muted-foreground hover:text-primary"
+
             )}
           >
             {tab}
@@ -215,7 +214,7 @@ const Settings = () => {
 
       {activeTab === "Danger zone" && (
         <div className="rounded-xl border border-red-200 bg-background p-6">
-          <h2 className="mb-1 text-sm font-semibold text-red-600">Danger zone</h2>
+          <h2 className="mb-1 text-sm font-semibold text-danger">Danger zone</h2>
           <p className="mb-6 text-xs text-muted-foreground">These actions are irreversible. Proceed with caution.</p>
           <div className="space-y-4">
             {[
@@ -240,7 +239,7 @@ const Settings = () => {
       {/* Save button */}
       {activeTab !== "Danger zone" && (
         <div className="flex justify-end">
-          <button className="flex items-center gap-2 rounded-lg bg-violet-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-violet-700">
+          <button className="flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white hover:bg-primary/90">
             <Save className="h-4 w-4" />
             Save changes
           </button>

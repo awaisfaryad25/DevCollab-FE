@@ -49,7 +49,7 @@ const WorkSpaces = () => {
           {["All", "Pro", "Free"].map((p) => (
             <button key={p} onClick={() => setPlanFilter(p)}
               className={cn("rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors",
-                planFilter === p ? "border-violet-600 bg-violet-600 text-white" : "border-border bg-background text-foreground hover:bg-accent"
+                planFilter === p ? "border-primary bg-primary text-white" : "border-border bg-background text-foreground hover:bg-accent"
               )}>{p}</button>
           ))}
         </div>
@@ -57,7 +57,7 @@ const WorkSpaces = () => {
           {["All", "Active", "Suspended"].map((s) => (
             <button key={s} onClick={() => setStatusFilter(s)}
               className={cn("rounded-lg border px-3 py-1.5 text-xs font-medium transition-colors",
-                statusFilter === s ? "border-violet-600 bg-violet-600 text-white" : "border-border bg-background text-foreground hover:bg-accent"
+                statusFilter === s ? "border-primary bg-primary text-white" : "border-border bg-background text-foreground hover:bg-accent"
               )}>{s}</button>
           ))}
         </div>
@@ -117,7 +117,7 @@ const WorkSpaces = () => {
           <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent disabled:opacity-40" disabled>
             <ChevronLeft className="h-4 w-4" />
           </button>
-          <span className="rounded-md bg-violet-600 px-2.5 py-1 text-xs font-medium text-white">1</span>
+          <span className="rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-white">1</span>
           <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent">
             <ChevronRight className="h-4 w-4" />
           </button>

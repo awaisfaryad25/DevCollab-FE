@@ -6,6 +6,7 @@
   
   /* Brand Colors */
   --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
   --color-secondary: var(--secondary);
   --color-primary-rgb: var(--primary-rgb);
   --color-secondary-rgb: var(--secondary-rgb);
@@ -44,6 +45,7 @@
 
 :root {
   --primary: #0EA5E9;
+  --primary-light: #E7F6FD;
   --secondary: #010066;
   --primary-rgb: 14, 165, 233;
   --secondary-rgb: 1, 0, 102;

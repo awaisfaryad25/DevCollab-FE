@@ -56,7 +56,7 @@ const Activity = () => {
               className={cn(
                 "rounded-lg border px-2.5 py-1 text-xs font-medium capitalize transition-colors",
                 typeFilter === t
-                  ? "border-violet-600 bg-violet-600 text-white"
+                  ? "border-primary bg-primary text-white"
                   : "border-border bg-background text-foreground hover:bg-accent"
               )}
             >

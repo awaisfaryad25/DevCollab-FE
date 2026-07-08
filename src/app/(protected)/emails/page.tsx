@@ -125,7 +125,7 @@ const EmailLogs = () => {
           {["All", "delivered", "failed", "pending"].map((s) => (
             <button key={s} onClick={() => setStatusFilter(s)}
               className={cn("rounded-lg border px-3 py-1.5 text-xs font-medium capitalize transition-colors",
-                statusFilter === s ? "border-violet-600 bg-violet-600 text-white" : "border-border bg-background text-foreground hover:bg-accent"
+                statusFilter === s ? "border-primary bg-primary text-white" : "border-border bg-background text-foreground hover:bg-accent"
               )}>{s}</button>
           ))}
         </div>
@@ -181,7 +181,7 @@ const EmailLogs = () => {
           <p className="text-xs text-muted-foreground">Showing {filtered.length} of {emailLogs.length}</p>
           <div className="flex items-center gap-1">
             <button disabled className="rounded-md p-1.5 text-muted-foreground disabled:opacity-40"><ChevronLeft className="h-4 w-4" /></button>
-            <span className="rounded-md bg-violet-600 px-2.5 py-1 text-xs font-medium text-white">1</span>
+            <span className="rounded-md bg-primary px-2.5 py-1 text-xs font-medium text-white">1</span>
             <button className="rounded-md p-1.5 text-muted-foreground hover:bg-accent"><ChevronRight className="h-4 w-4" /></button>
           </div>
         </div>
@@ -225,7 +225,7 @@ const EmailLogs = () => {
                     </div>
                     <p className="text-sm font-semibold text-foreground">{preview.subject}</p>
                     <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{preview.preview}</p>
-                    <div className="mt-4 inline-block rounded-lg bg-violet-600 px-4 py-2 text-xs font-medium text-white">
+                    <div className="mt-4 inline-block rounded-lg bg-primary px-4 py-2 text-xs font-medium text-white">
                       {preview.template === "verifyEmail" ? "Verify email" : preview.template === "resetPassword" ? "Reset password" : "View account"}
                     </div>
                   </div>
@@ -233,7 +233,7 @@ const EmailLogs = () => {
               </div>
               {preview.status === "failed" && (
                 <div className="border-t border-border p-4">
-                  <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white hover:bg-violet-700">
+                  <button className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-sm font-medium text-white hover:bg-primary/80">
                     <RefreshCw className="h-4 w-4" /> Resend email
                   </button>
                 </div>

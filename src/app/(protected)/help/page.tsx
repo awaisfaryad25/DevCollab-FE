@@ -116,10 +116,10 @@ const Help = () => {
               className="group flex items-start gap-3 rounded-xl border border-border bg-background p-4 hover:shadow-md transition-shadow"
             >
               <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-violet-50">
-                <Icon className="h-5 w-5 text-violet-600" />
+                <Icon className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <p className="text-sm font-medium text-foreground group-hover:text-violet-600">{d.title}</p>
+                <p className="text-sm font-medium text-foreground group-hover:text-primary">{d.title}</p>
                 <p className="mt-0.5 text-xs text-muted-foreground">{d.desc}</p>
               </div>
               <ExternalLink className="ml-auto h-3.5 w-3.5 shrink-0 text-muted-foreground opacity-0 group-hover:opacity-100" />
@@ -172,7 +172,7 @@ const Help = () => {
         <div className="rounded-xl border border-border bg-background p-6">
           <div className="mb-4 flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-violet-50">
-              <MessageSquare className="h-5 w-5 text-violet-600" />
+              <MessageSquare className="h-5 w-5 text-primary" />
             </div>
             <div>
               <h2 className="text-sm font-semibold text-foreground">Send a message</h2>
@@ -189,13 +189,13 @@ const Help = () => {
           <button
             onClick={handleContact}
             disabled={!contactMsg || contactSending}
-            className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-violet-600 py-2.5 text-sm font-medium text-white hover:bg-violet-700 disabled:opacity-50"
+            className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-2.5 text-sm font-medium text-white hover:bg-primary/90 disabled:opacity-50"
           >
             {contactSending ? <Loader2 className="h-4 w-4 animate-spin" /> : <Mail className="h-4 w-4" />}
             {contactSending ? "Sending..." : "Send message"}
           </button>
           {contactSent && (
-            <div className="mt-3 flex items-center gap-2 rounded-lg bg-emerald-50 p-3 text-sm text-emerald-700">
+            <div className="mt-3 flex items-center gap-2 rounded-lg bg-emerald-50 p-3 text-sm text-success">
               <CheckCircle2 className="h-4 w-4 shrink-0" />
               Message sent! We'll get back to you soon.
             </div>
