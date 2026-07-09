@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Save, Eye, EyeOff } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Toggle from "@/app/ui/Toggle";
 
 const tabs = ["General", "Email / SMTP", "Stripe", "Security", "Danger zone"];
 
@@ -58,28 +59,6 @@ function SecretInput({ defaultValue, placeholder }: { defaultValue?: string; pla
       >
         {show ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
       </button>
-    </div>
-  );
-}
-
-function Toggle({ defaultChecked, label }: { defaultChecked?: boolean; label: string }) {
-  const [on, setOn] = useState(defaultChecked ?? false);
-  return (
-    <div className="flex items-center gap-3">
-      <button
-        type="button"
-        onClick={() => setOn(!on)}
-        className={cn(
-          "relative h-5 w-9 rounded-full transition-colors",
-          on ? "bg-primary" : "bg-muted"
-        )}
-      >
-        <span className={cn(
-          "absolute top-0.5 size-4 rounded-full bg-white shadow transition-transform",
-          on ? "translate-x-0" : "-translate-x-4"
-        )} />
-      </button>
-      <span className="text-sm text-foreground">{label}</span>
     </div>
   );
 }
