@@ -15,6 +15,7 @@ import {
   Globe,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Toggle from "@/app/ui/Toggle";
 
 // ─── MOCK DATA ────────────────────────────────────────────────────────────────
 
@@ -56,24 +57,6 @@ function TextInput({ defaultValue, placeholder, type = "text", disabled }: {
       disabled={disabled}
       className="w-full rounded-lg border border-border bg-background px-3 py-2.5 text-sm text-foreground placeholder:text-muted-foreground outline-none disabled:cursor-not-allowed disabled:opacity-50"
     />
-  );
-}
-
-function Toggle({ label, hint, defaultChecked }: { label: string; hint?: string; defaultChecked?: boolean }) {
-  const [on, setOn] = useState(defaultChecked ?? false);
-  return (
-    <div className="flex items-start justify-between gap-4">
-      <div>
-        <p className="text-sm font-medium text-foreground">{label}</p>
-        {hint && <p className="mt-0.5 text-xs text-muted-foreground">{hint}</p>}
-      </div>
-      <button
-        onClick={() => setOn(!on)}
-        className={cn("relative mt-0.5 h-5 w-9 shrink-0 rounded-full transition-colors", on ? "bg-violet-600" : "bg-muted")}
-      >
-        <span className={cn("absolute top-0.5 h-4 w-4 rounded-full bg-white shadow transition-transform", on ? "translate-x-4" : "translate-x-0.5")} />
-      </button>
-    </div>
   );
 }
 
@@ -225,10 +208,10 @@ function PreferencesTab() {
         <h3 className="text-sm font-semibold text-foreground border-b border-border pb-3 flex items-center gap-2">
           <Bell className="h-4 w-4" /> Notifications
         </h3>
-        <Toggle label="New user signups" hint="Alert when a new user registers." defaultChecked />
-        <Toggle label="Failed payments" hint="Alert when a payment fails." defaultChecked />
-        <Toggle label="Security events" hint="Alert on failed login attempts." defaultChecked />
-        <Toggle label="Weekly digest" hint="Summary email every Monday." />
+        <Toggle label="New user signups" defaultChecked />
+        <Toggle label="Failed payments" />
+        <Toggle label="Security events" defaultChecked />
+        <Toggle label="Weekly digest" />
       </div>
 
       <div className="rounded-xl border border-border bg-background p-6 space-y-5">

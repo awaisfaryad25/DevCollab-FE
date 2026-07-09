@@ -194,7 +194,7 @@ const Dashboard = () => {
               <h2 className="text-sm font-semibold text-foreground">Recent users</h2>
               <p className="mt-0.5 text-xs text-muted-foreground">Latest signups across all plans</p>
             </div>
-            <Link href="/dashboard/users" className="flex items-center gap-1 text-xs text-violet-600 hover:underline">
+            <Link href="/users" className="flex items-center gap-1 text-xs text-primary hover:underline">
               View all <ArrowRight className="size-3" />
             </Link>
           </div>
