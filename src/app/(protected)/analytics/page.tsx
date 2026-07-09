@@ -1,8 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { TrendingUp, TrendingDown, Users, CreditCard, FolderKanban, CheckSquare } from "lucide-react";
+import {
+  TrendingUp, TrendingDown, Users, CreditCard, FolderKanban, CheckSquare,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
+import {
+  AreaChart, Area, XAxis, YAxis, CartesianGrid,
+  Tooltip, ResponsiveContainer,
+} from "recharts";
 
 // ─── MOCK DATA ────────────────────────────────────────────────────────────────
 
@@ -14,21 +20,21 @@ const summaryCards = [
 ];
 
 const revenueMonths = [
-  { month: "Jan", value: 4200 },
-  { month: "Feb", value: 5100 },
-  { month: "Mar", value: 4800 },
-  { month: "Apr", value: 6200 },
-  { month: "May", value: 7400 },
-  { month: "Jun", value: 9240 },
+  { month: "Jan", revenue: 4200 },
+  { month: "Feb", revenue: 5100 },
+  { month: "Mar", revenue: 4800 },
+  { month: "Apr", revenue: 6200 },
+  { month: "May", revenue: 7400 },
+  { month: "Jun", revenue: 9240 },
 ];
 
 const signupMonths = [
-  { month: "Jan", value: 120 },
-  { month: "Feb", value: 185 },
-  { month: "Mar", value: 142 },
-  { month: "Apr", value: 210 },
-  { month: "May", value: 198 },
-  { month: "Jun", value: 284 },
+  { month: "Jan", signups: 120 },
+  { month: "Feb", signups: 185 },
+  { month: "Mar", signups: 142 },
+  { month: "Apr", signups: 210 },
+  { month: "May", signups: 198 },
+  { month: "Jun", signups: 284 },
 ];
 
 const planBreakdown = [
@@ -44,16 +50,44 @@ const topWorkspaces = [
   { name: "BuildFast", members: 6, projects: 4, plan: "Free" },
 ];
 
-const maxRevenue = Math.max(...revenueMonths.map((d) => d.value));
-const maxSignup = Math.max(...signupMonths.map((d) => d.value));
+// ─── CUSTOM TOOLTIPS ──────────────────────────────────────────────────────────
 
+const RevenueTooltip = ({ active, payload, label }: any) => {
+  if (!active || !payload?.length) return null;
+  return (
+    <div className="rounded-lg border border-border bg-background px-3 py-2 shadow-md">
+      <p className="mb-1 text-xs font-medium text-foreground">{label}</p>
+      <p className="text-xs text-violet-600">${payload[0].value.toLocaleString()}</p>
+    </div>
+  );
+};
+
+const SignupTooltip = ({ active, payload, label }: any) => {
+  if (!active || !payload?.length) return null;
+  return (
+    <div className="rounded-lg border border-border bg-background px-3 py-2 shadow-md">
+      <p className="mb-1 text-xs font-medium text-foreground">{label}</p>
+      <p className="text-xs text-emerald-600">{payload[0].value} signups</p>
+    </div>
+  );
+};
+
+// ─── SHARED CHART PROPS ───────────────────────────────────────────────────────
+
+const axisProps = {
+  axisLine: false,
+  tickLine: false,
+  tick: { fontSize: 11 },
+};
+
+// ─── PAGE ─────────────────────────────────────────────────────────────────────
 
 const Analytics = () => {
-
-   const [range, setRange] = useState("6M");
+  const [range, setRange] = useState("6M");
 
   return (
     <div className="space-y-6">
+
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
@@ -92,8 +126,12 @@ const Analytics = () => {
                 </div>
               </div>
               <div className="mt-3 flex items-center gap-1.5">
-                {s.up ? <TrendingUp className="h-3.5 w-3.5 text-emerald-500" /> : <TrendingDown className="h-3.5 w-3.5 text-red-500" />}
-                <span className={cn("text-xs font-medium", s.up ? "text-emerald-600" : "text-red-500")}>{s.change}</span>
+                {s.up
+                  ? <TrendingUp className="h-3.5 w-3.5 text-emerald-500" />
+                  : <TrendingDown className="h-3.5 w-3.5 text-red-500" />}
+                <span className={cn("text-xs font-medium", s.up ? "text-emerald-600" : "text-red-500")}>
+                  {s.change}
+                </span>
                 <span className="text-xs text-muted-foreground">vs last period</span>
               </div>
             </div>
@@ -103,43 +141,79 @@ const Analytics = () => {
 
       {/* Charts row */}
       <div className="grid gap-6 lg:grid-cols-2">
-        {/* Revenue chart */}
+
+        {/* Revenue area chart */}
         <div className="rounded-xl border border-border bg-background p-5">
-          <h2 className="mb-4 text-sm font-semibold text-foreground">Monthly revenue</h2>
-          <div className="flex items-end gap-3 h-44">
-            {revenueMonths.map(({ month, value }) => (
-              <div key={month} className="flex flex-1 flex-col items-center gap-1">
-                <span className="text-[10px] text-muted-foreground">${(value / 1000).toFixed(1)}k</span>
-                <div
-                  className="w-full rounded-t-md bg-violet-200 hover:bg-violet-500 transition-colors cursor-pointer"
-                  style={{ height: `${(value / maxRevenue) * 140}px` }}
-                />
-                <span className="text-[10px] text-muted-foreground">{month}</span>
-              </div>
-            ))}
-          </div>
+          <h2 className="mb-1 text-sm font-semibold text-foreground">Monthly revenue</h2>
+          <p className="mb-5 text-xs text-muted-foreground">Last 6 months · USD</p>
+          <ResponsiveContainer width="100%" height={180}>
+            <AreaChart data={revenueMonths} margin={{ top: 4, right: 4, left: -20, bottom: 0 }}>
+              <defs>
+                <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#7c3aed" stopOpacity={0.15} />
+                  <stop offset="95%" stopColor="#7c3aed" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="currentColor" className="text-border" vertical={false} />
+              <XAxis dataKey="month" {...axisProps} className="text-muted-foreground" />
+              <YAxis
+                {...axisProps}
+                className="text-muted-foreground"
+                tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
+              />
+              <Tooltip
+                content={<RevenueTooltip />}
+                cursor={{ stroke: "#7c3aed", strokeWidth: 1, strokeDasharray: "4 4" }}
+              />
+              <Area
+                type="monotone"
+                dataKey="revenue"
+                stroke="#7c3aed"
+                strokeWidth={2}
+                fill="url(#revenueGradient)"
+                dot={{ fill: "#7c3aed", strokeWidth: 2, r: 3, stroke: "#fff" }}
+                activeDot={{ r: 5, fill: "#7c3aed", stroke: "#fff", strokeWidth: 2 }}
+              />
+            </AreaChart>
+          </ResponsiveContainer>
         </div>
 
-        {/* Signups chart */}
+        {/* Signups area chart */}
         <div className="rounded-xl border border-border bg-background p-5">
-          <h2 className="mb-4 text-sm font-semibold text-foreground">New user signups</h2>
-          <div className="flex items-end gap-3 h-44">
-            {signupMonths.map(({ month, value }) => (
-              <div key={month} className="flex flex-1 flex-col items-center gap-1">
-                <span className="text-[10px] text-muted-foreground">{value}</span>
-                <div
-                  className="w-full rounded-t-md bg-emerald-200 hover:bg-emerald-500 transition-colors cursor-pointer"
-                  style={{ height: `${(value / maxSignup) * 140}px` }}
-                />
-                <span className="text-[10px] text-muted-foreground">{month}</span>
-              </div>
-            ))}
-          </div>
+          <h2 className="mb-1 text-sm font-semibold text-foreground">New user signups</h2>
+          <p className="mb-5 text-xs text-muted-foreground">Last 6 months · all plans</p>
+          <ResponsiveContainer width="100%" height={180}>
+            <AreaChart data={signupMonths} margin={{ top: 4, right: 4, left: -28, bottom: 0 }}>
+              <defs>
+                <linearGradient id="signupGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.15} />
+                  <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="currentColor" className="text-border" vertical={false} />
+              <XAxis dataKey="month" {...axisProps} className="text-muted-foreground" />
+              <YAxis {...axisProps} className="text-muted-foreground" />
+              <Tooltip
+                content={<SignupTooltip />}
+                cursor={{ stroke: "#10b981", strokeWidth: 1, strokeDasharray: "4 4" }}
+              />
+              <Area
+                type="monotone"
+                dataKey="signups"
+                stroke="#10b981"
+                strokeWidth={2}
+                fill="url(#signupGradient)"
+                dot={{ fill: "#10b981", strokeWidth: 2, r: 3, stroke: "#fff" }}
+                activeDot={{ r: 5, fill: "#10b981", stroke: "#fff", strokeWidth: 2 }}
+              />
+            </AreaChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
       {/* Plan breakdown + top workspaces */}
       <div className="grid gap-6 lg:grid-cols-2">
+
         {/* Plan breakdown */}
         <div className="rounded-xl border border-border bg-background p-5">
           <h2 className="mb-4 text-sm font-semibold text-foreground">Plan breakdown</h2>
@@ -148,7 +222,9 @@ const Analytics = () => {
               <div key={p.plan}>
                 <div className="mb-1.5 flex items-center justify-between text-xs">
                   <span className="font-medium text-foreground">{p.plan}</span>
-                  <span className="text-muted-foreground">{p.count.toLocaleString()} users · {p.pct}%</span>
+                  <span className="text-muted-foreground">
+                    {p.count.toLocaleString()} users · {p.pct}%
+                  </span>
                 </div>
                 <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
                   <div className={cn("h-full rounded-full", p.color)} style={{ width: `${p.pct}%` }} />
@@ -177,10 +253,15 @@ const Analytics = () => {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium text-foreground">{w.name}</p>
-                  <p className="text-xs text-muted-foreground">{w.members} members · {w.projects} projects</p>
+                  <p className="text-xs text-muted-foreground">
+                    {w.members} members · {w.projects} projects
+                  </p>
                 </div>
-                <span className={cn("rounded-full px-2 py-0.5 text-[10px] font-medium",
-                  w.plan === "Pro" ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground"
+                <span className={cn(
+                  "rounded-full px-2 py-0.5 text-[10px] font-medium",
+                  w.plan === "Pro"
+                    ? "bg-primary/10 text-primary"
+                    : "bg-muted text-muted-foreground"
                 )}>
                   {w.plan}
                 </span>
@@ -190,7 +271,7 @@ const Analytics = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Analytics
+export default Analytics;
