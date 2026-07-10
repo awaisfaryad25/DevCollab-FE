@@ -58,7 +58,7 @@ const availableReports = [
     title: "User growth report",
     desc: "Monthly signups, active users, and churn breakdown.",
     icon: Users,
-    color: "text-violet-600",
+    color: "text-primary",
     bg: "bg-violet-50",
     formats: ["CSV", "PDF"],
   },
@@ -98,7 +98,6 @@ const maxBar = (data: number[]) => Math.max(...data);
 function BarChart({
   data,
   keys,
-  colors,
   height = 120,
 }: {
   data: Record<string, any>[];
@@ -206,7 +205,7 @@ const Reports = () => {
                 className={cn(
                   "rounded-md px-3 py-1 text-xs font-medium transition-colors",
                   dateRange === r
-                    ? "bg-violet-600 text-white"
+                    ? "bg-primary text-white"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
@@ -234,9 +233,9 @@ const Reports = () => {
               </div>
               <div className="mt-3 flex items-center gap-1.5">
                 {c.up
-                  ? <TrendingUp className="h-3.5 w-3.5 text-emerald-500" />
-                  : <TrendingDown className="h-3.5 w-3.5 text-red-500" />}
-                <span className={cn("text-xs font-medium", c.up ? "text-emerald-600" : "text-red-500")}>{c.change}</span>
+                  ? <TrendingUp className="h-3.5 w-3.5 text-success" />
+                  : <TrendingDown className="h-3.5 w-3.5 text-danger" />}
+                <span className={cn("text-xs font-medium", c.up ? "text-success" : "text-danger")}>{c.change}</span>
                 <span className="text-xs text-muted-foreground">vs last period</span>
               </div>
             </div>
@@ -255,7 +254,7 @@ const Reports = () => {
               className={cn(
                 "flex items-center gap-2 shrink-0 border-b-2 px-4 py-2.5 text-sm font-medium transition-colors",
                 activeReport === r.id
-                  ? "border-violet-600 text-violet-600"
+                  ? "border-primary text-primary"
                   : "border-transparent text-muted-foreground hover:text-foreground"
               )}
             >
@@ -283,9 +282,9 @@ const Reports = () => {
             <BarChart
               data={userReport}
               keys={[
-                { key: "signups", color: "bg-violet-400", label: "Signups" },
-                { key: "active", color: "bg-emerald-400", label: "Active" },
-                { key: "churned", color: "bg-red-300", label: "Churned" },
+                { key: "signups", color: "bg-primary", label: "Signups" },
+                { key: "active", color: "bg-success", label: "Active" },
+                { key: "churned", color: "bg-danger", label: "Churned" },
               ]}
               height={160}
             />
@@ -307,7 +306,7 @@ const Reports = () => {
                     <td className="px-4 py-3 text-sm font-medium text-foreground">{row.month}</td>
                     <td className="px-4 py-3 text-sm text-foreground">{row.signups}</td>
                     <td className="px-4 py-3 text-sm text-foreground">{row.active}</td>
-                    <td className="px-4 py-3 text-sm text-red-500">{row.churned}</td>
+                    <td className="px-4 py-3 text-sm text-danger">{row.churned}</td>
                     <td className="px-4 py-3 text-sm text-muted-foreground">
                       {((row.churned / row.signups) * 100).toFixed(1)}%
                     </td>
@@ -319,7 +318,7 @@ const Reports = () => {
                   <td className="px-4 py-3 text-xs font-semibold text-foreground">Total</td>
                   <td className="px-4 py-3 text-xs font-semibold text-foreground">{userReport.reduce((a, r) => a + r.signups, 0)}</td>
                   <td className="px-4 py-3 text-xs font-semibold text-foreground">{userReport.reduce((a, r) => a + r.active, 0)}</td>
-                  <td className="px-4 py-3 text-xs font-semibold text-red-500">{userReport.reduce((a, r) => a + r.churned, 0)}</td>
+                  <td className="px-4 py-3 text-xs font-semibold text-danger">{userReport.reduce((a, r) => a + r.churned, 0)}</td>
                   <td className="px-4 py-3 text-xs text-muted-foreground">—</td>
                 </tr>
               </tfoot>
@@ -344,9 +343,9 @@ const Reports = () => {
             <BarChart
               data={revenueReport}
               keys={[
-                { key: "revenue", color: "bg-emerald-400", label: "Revenue" },
-                { key: "refunds", color: "bg-red-300", label: "Refunds" },
-                { key: "net", color: "bg-violet-400", label: "Net" },
+                { key: "revenue", color: "bg-success", label: "Revenue" },
+                { key: "refunds", color: "bg-danger", label: "Refunds" },
+                { key: "net", color: "bg-primary", label: "Net" },
               ]}
               height={160}
             />
@@ -368,12 +367,12 @@ const Reports = () => {
                   return (
                     <tr key={row.month} className="hover:bg-muted/30 transition-colors">
                       <td className="px-4 py-3 text-sm font-medium text-foreground">{row.month}</td>
-                      <td className="px-4 py-3 text-sm text-emerald-600 font-medium">${row.revenue.toLocaleString()}</td>
-                      <td className="px-4 py-3 text-sm text-red-500">-${row.refunds}</td>
+                      <td className="px-4 py-3 text-sm text-success font-medium">${row.revenue.toLocaleString()}</td>
+                      <td className="px-4 py-3 text-sm text-danger">-${row.refunds}</td>
                       <td className="px-4 py-3 text-sm font-semibold text-foreground">${row.net.toLocaleString()}</td>
                       <td className="px-4 py-3 text-xs">
                         {growth ? (
-                          <span className={cn("font-medium", Number(growth) >= 0 ? "text-emerald-600" : "text-red-500")}>
+                          <span className={cn("font-medium", Number(growth) >= 0 ? "text-success" : "text-danger")}>
                             {Number(growth) >= 0 ? "+" : ""}{growth}%
                           </span>
                         ) : (
@@ -387,8 +386,8 @@ const Reports = () => {
               <tfoot>
                 <tr className="border-t border-border bg-muted/40">
                   <td className="px-4 py-3 text-xs font-semibold text-foreground">Total</td>
-                  <td className="px-4 py-3 text-xs font-semibold text-emerald-600">${revenueReport.reduce((a, r) => a + r.revenue, 0).toLocaleString()}</td>
-                  <td className="px-4 py-3 text-xs font-semibold text-red-500">-${revenueReport.reduce((a, r) => a + r.refunds, 0)}</td>
+                  <td className="px-4 py-3 text-xs font-semibold text-success">${revenueReport.reduce((a, r) => a + r.revenue, 0).toLocaleString()}</td>
+                  <td className="px-4 py-3 text-xs font-semibold text-danger">-${revenueReport.reduce((a, r) => a + r.refunds, 0)}</td>
                   <td className="px-4 py-3 text-xs font-semibold text-foreground">${revenueReport.reduce((a, r) => a + r.net, 0).toLocaleString()}</td>
                   <td className="px-4 py-3 text-xs text-muted-foreground">—</td>
                 </tr>
@@ -415,8 +414,8 @@ const Reports = () => {
               data={taskReport}
               keys={[
                 { key: "created", color: "bg-blue-400", label: "Created" },
-                { key: "completed", color: "bg-emerald-400", label: "Completed" },
-                { key: "overdue", color: "bg-red-300", label: "Overdue" },
+                { key: "completed", color: "bg-success", label: "Completed" },
+                { key: "overdue", color: "bg-danger", label: "Overdue" },
               ]}
               height={160}
             />
@@ -436,13 +435,13 @@ const Reports = () => {
                   <tr key={row.month} className="hover:bg-muted/30 transition-colors">
                     <td className="px-4 py-3 text-sm font-medium text-foreground">{row.month}</td>
                     <td className="px-4 py-3 text-sm text-foreground">{row.created}</td>
-                    <td className="px-4 py-3 text-sm text-emerald-600 font-medium">{row.completed}</td>
-                    <td className="px-4 py-3 text-sm text-red-500">{row.overdue}</td>
+                    <td className="px-4 py-3 text-sm text-success font-medium">{row.completed}</td>
+                    <td className="px-4 py-3 text-sm text-danger">{row.overdue}</td>
                     <td className="px-4 py-3">
                       <div className="flex items-center gap-2">
                         <div className="h-1.5 w-20 overflow-hidden rounded-full bg-muted">
                           <div
-                            className="h-full rounded-full bg-emerald-500"
+                            className="h-full rounded-full bg-success"
                             style={{ width: `${((row.completed / row.created) * 100).toFixed(0)}%` }}
                           />
                         </div>
@@ -458,8 +457,8 @@ const Reports = () => {
                 <tr className="border-t border-border bg-muted/40">
                   <td className="px-4 py-3 text-xs font-semibold text-foreground">Total</td>
                   <td className="px-4 py-3 text-xs font-semibold text-foreground">{taskReport.reduce((a, r) => a + r.created, 0)}</td>
-                  <td className="px-4 py-3 text-xs font-semibold text-emerald-600">{taskReport.reduce((a, r) => a + r.completed, 0)}</td>
-                  <td className="px-4 py-3 text-xs font-semibold text-red-500">{taskReport.reduce((a, r) => a + r.overdue, 0)}</td>
+                  <td className="px-4 py-3 text-xs font-semibold text-success">{taskReport.reduce((a, r) => a + r.completed, 0)}</td>
+                  <td className="px-4 py-3 text-xs font-semibold text-danger">{taskReport.reduce((a, r) => a + r.overdue, 0)}</td>
                   <td className="px-4 py-3 text-xs text-muted-foreground">—</td>
                 </tr>
               </tfoot>
@@ -488,8 +487,8 @@ const Reports = () => {
                 { month: "Jun", new: 46, cancelled: 6, mrr: 9240 / 19 },
               ]}
               keys={[
-                { key: "new", color: "bg-violet-400", label: "New Pro" },
-                { key: "cancelled", color: "bg-red-300", label: "Cancelled" },
+                { key: "new", color: "bg-primary", label: "New Pro" },
+                { key: "cancelled", color: "bg-danger", label: "Cancelled" },
               ]}
               height={160}
             />
