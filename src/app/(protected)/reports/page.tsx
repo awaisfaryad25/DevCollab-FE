@@ -33,20 +33,20 @@ const summaryCards = [
 ];
 
 const userReport = [
-  { month: "Jan", signups: 120, active: 98, churned: 4 },
-  { month: "Feb", signups: 185, active: 160, churned: 8 },
-  { month: "Mar", signups: 142, active: 130, churned: 6 },
-  { month: "Apr", signups: 210, active: 195, churned: 10 },
-  { month: "May", signups: 198, active: 180, churned: 7 },
+  { month: "Jan", signups: 20, active: 38, churned: 4 },
+  { month: "Feb", signups: 285, active: 190, churned: 8 },
+  { month: "Mar", signups: 102, active: 30, churned: 6 },
+  { month: "Apr", signups: 210, active: 295, churned: 10 },
+  { month: "May", signups: 98, active: 80, churned: 7 },
   { month: "Jun", signups: 284, active: 261, churned: 12 },
 ];
 
 const revenueReport = [
-  { month: "Jan", revenue: 4200, refunds: 38, net: 4162 },
-  { month: "Feb", revenue: 5100, refunds: 57, net: 5043 },
-  { month: "Mar", revenue: 4800, refunds: 19, net: 4781 },
-  { month: "Apr", revenue: 6200, refunds: 76, net: 6124 },
-  { month: "May", revenue: 7400, refunds: 95, net: 7305 },
+  { month: "Jan", revenue: 8200, refunds: 38, net: 3162 },
+  { month: "Feb", revenue: 2100, refunds: 57, net: 7043 },
+  { month: "Mar", revenue: 4800, refunds: 19, net: 2781 },
+  { month: "Apr", revenue: 7200, refunds: 76, net: 6124 },
+  { month: "May", revenue: 3400, refunds: 95, net: 2305 },
   { month: "Jun", revenue: 9240, refunds: 114, net: 9126 },
 ];
 
@@ -317,7 +317,7 @@ const Reports = () => {
             <AreaChart
               data={userReport}
               keys={[
-                { key: "signups", color: "#7c3aed", label: "Signups" },
+                { key: "signups", color: "#0EA5E9", label: "Signups" },
                 { key: "active", color: "#10b981", label: "Active" },
                 { key: "churned", color: "#ef4444", label: "Churned" },
               ]}
@@ -380,7 +380,7 @@ const Reports = () => {
               keys={[
                 { key: "revenue", color: "#10b981", label: "Revenue" },
                 { key: "refunds", color: "#ef4444", label: "Refunds" },
-                { key: "net", color: "#7c3aed", label: "Net" },
+                { key: "net", color: "#0EA5E9", label: "Net" },
               ]}
               height={220}
             />
@@ -448,7 +448,7 @@ const Reports = () => {
             <AreaChart
               data={taskReport}
               keys={[
-                { key: "created", color: "#60a5fa", label: "Created" },
+                { key: "created", color: "#0EA5E9", label: "Created" },
                 { key: "completed", color: "#10b981", label: "Completed" },
                 { key: "overdue", color: "#ef4444", label: "Overdue" },
               ]}
@@ -522,7 +522,7 @@ const Reports = () => {
                 { month: "Jun", new: 46, cancelled: 6, mrr: 9240 / 19 },
               ]}
               keys={[
-                { key: "new", color: "#7c3aed", label: "New Pro" },
+                { key: "new", color: "#0EA5E9", label: "New Pro" },
                 { key: "cancelled", color: "#ef4444", label: "Cancelled" },
               ]}
               height={220}
