@@ -55,7 +55,7 @@ export default function TeamCarousel() {
   };
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-muted/40 px-4">
+    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-muted/40 p-4 md:pb-10 2xl:pb-16">
       {/* Background Title */}
       <h1 className="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-4xl md:5xl 2xl:text-[7rem] font-black uppercase tracking-tight text-transparent gradient-transparent! bg-clip-text">
         OUR TEAM
@@ -110,12 +110,12 @@ export default function TeamCarousel() {
       </div>
 
       {/* Member Info */}
-      <div className="mt-10 text-center">
-        <h2 className="relative inline-block text-4xl font-bold  md:text-5xl">
+      <div className="mt-6 text-center">
+        <h2 className="relative inline-block text-3xl font-bold  md:text-4xl 2xl:text-5xl">
           {teamMembers[currentIndex].name}
 
-          <span className="absolute top-full right-[calc(100%+20px)] h-0.5 w-32 bg-secondary rounded-full" />
-          <span className="absolute top-full left-[calc(100%+20px)] h-0.5 w-32 bg-secondary rounded-full" />
+          <span className="absolute top-full right-[calc(100%+20px)] h-0.5 w-32 2xl:w-40 bg-primary rounded-full" />
+          <span className="absolute top-full left-[calc(100%+20px)] h-0.5 w-32 2xl:w-40 bg-primary rounded-full" />
         </h2>
 
         <p className="mt-2 text-lg uppercase tracking-[0.15em] ">
@@ -124,13 +124,13 @@ export default function TeamCarousel() {
       </div>
 
       {/* Dots */}
-      <div className="mt-12 flex gap-3">
+      <div className="mt-6 md:mt-10 2xl:mt-12 flex gap-3">
         {teamMembers.map((_, index) => (
           <button
             key={index}
             onClick={() => updateCarousel(index)}
             className={`size-3 rounded-full transition-all cursor-pointer ${
-              currentIndex === index ? "scale-125 bg-secondary" : "bg-text"
+              currentIndex === index ? "scale-125 bg-primary" : "bg-text"
             }`}
           />
         ))}
