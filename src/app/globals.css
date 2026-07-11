@@ -129,9 +129,9 @@ p {
 .sidebar-btn--active::after {
   content: "";
   position: absolute;
-  left: 0%;
+  left: -17px;
   top: 50%;
-  z-index: 10;
+  z-index: 100;
   transform: translateY(-50%);
   height: 60%; /* Adjust as needed */
   width: 4px;
