@@ -180,18 +180,14 @@ const SidebarContent = ({
                     href={item.url}
                     title={isCollapsed && !isMobile ? item.title : undefined}
                     className={cn(
-                      "flex items-center gap-2 rounded-md px-2 py-1.5 text-sm transition-colors",
+                      "flex items-center gap-2 rounded px-2 py-1.5 text-sm transition-colors",
                       active
-                        ? "bg-accent font-medium text-accent-foreground"
+                        ? "bg-accen bg-primary/8 font-medium text-primary"
                         : "text-muted-foreground hover:bg-accent hover:text-accent-foreground",
                       isCollapsed && !isMobile && "justify-center px-0"
                     )}
                   >
-                    <Icon
-                      className={cn(
-                        "h-4 w-4 opacity-80",
-                        isCollapsed && !isMobile && "h-5 w-5"
-                      )}
+                    <Icon className={cn("size-4.5", isCollapsed && !isMobile && "size-5")}
                     />
                     {(!isCollapsed || isMobile) && (
                       <>

@@ -122,6 +122,24 @@ p {
   color: var(--text);
 }
 
+.sidebar-btn--active {
+  position: relative;
+}
+
+.sidebar-btn--active::after {
+  content: "";
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%);
+  height: 60%; /* Adjust as needed */
+  width: 4px;
+  background-color: #424B63;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
 @layer utilities {
 
   .gradient {
