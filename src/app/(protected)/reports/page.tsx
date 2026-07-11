@@ -2,15 +2,22 @@
 
 import { useState } from "react";
 import {
+  Area,
+  AreaChart as RechartsAreaChart,
+  CartesianGrid,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
+import {
   Download,
-  FileText,
   Users,
   CreditCard,
   CheckSquare,
   TrendingUp,
   TrendingDown,
   Calendar,
-  ChevronDown,
   Loader2,
   CheckCircle2,
 } from "lucide-react";
@@ -91,51 +98,82 @@ const availableReports = [
   },
 ];
 
-const maxBar = (data: number[]) => Math.max(...data);
-
 // ─── SUBCOMPONENTS ────────────────────────────────────────────────────────────
 
-function BarChart({
+interface ChartKey {
+  key: string;
+  color: string; // real CSS color — recharts renders SVG, so Tailwind class names won't apply here
+  label: string;
+}
+
+function AreaChart({
   data,
   keys,
-  height = 120,
+  height = 160,
 }: {
   data: Record<string, any>[];
-  keys: { key: string; color: string; label: string }[];
+  keys: ChartKey[];
   height?: number;
 }) {
-  const allValues = keys.flatMap((k) => data.map((d) => d[k.key] as number));
-  const max = Math.max(...allValues);
-
   return (
     <div>
       {/* Legend */}
       <div className="mb-3 flex flex-wrap items-center gap-4">
         {keys.map((k) => (
           <div key={k.key} className="flex items-center gap-1.5">
-            <div className={cn("h-2.5 w-2.5 rounded-sm", k.color)} />
+            <div className="h-2.5 w-2.5 rounded-sm" style={{ backgroundColor: k.color }} />
             <span className="text-xs text-muted-foreground">{k.label}</span>
           </div>
         ))}
       </div>
-      {/* Bars */}
-      <div className="flex items-end gap-1" style={{ height }}>
-        {data.map((row) => (
-          <div key={row.month} className="flex flex-1 flex-col items-center gap-0.5">
-            <div className="flex w-full items-end gap-0.5" style={{ height: height - 18 }}>
-              {keys.map((k) => (
-                <div
-                  key={k.key}
-                  className={cn("flex-1 rounded-t-sm transition-all hover:opacity-80 cursor-pointer", k.color)}
-                  style={{ height: `${((row[k.key] as number) / max) * (height - 18)}px` }}
-                  title={`${k.label}: ${row[k.key]}`}
-                />
-              ))}
-            </div>
-            <span className="text-[10px] text-muted-foreground">{row.month}</span>
-          </div>
-        ))}
-      </div>
+
+      {/* Chart */}
+      <ResponsiveContainer width="100%" height={height}>
+        <RechartsAreaChart data={data} margin={{ top: 4, right: 8, left: -16, bottom: 0 }}>
+          <defs>
+            {keys.map((k) => (
+              <linearGradient id={`fill-${k.key}`} key={k.key} x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor={k.color} stopOpacity={0.35} />
+                <stop offset="95%" stopColor={k.color} stopOpacity={0.03} />
+              </linearGradient>
+            ))}
+          </defs>
+          <CartesianGrid vertical={false} strokeDasharray="3 3" stroke="var(--border)" />
+          <XAxis
+            dataKey="month"
+            tickLine={false}
+            axisLine={false}
+            tick={{ fontSize: 10, fill: "var(--muted-foreground)" }}
+          />
+          <YAxis
+            tickLine={false}
+            axisLine={false}
+            width={36}
+            tick={{ fontSize: 10, fill: "var(--muted-foreground)" }}
+          />
+          <Tooltip
+            contentStyle={{
+              fontSize: 12,
+              borderRadius: 8,
+              border: "1px solid var(--border)",
+              backgroundColor: "var(--background)",
+            }}
+            labelStyle={{ fontWeight: 600, marginBottom: 2 }}
+          />
+          {keys.map((k) => (
+            <Area
+              key={k.key}
+              type="monotone"
+              dataKey={k.key}
+              name={k.label}
+              stroke={k.color}
+              strokeWidth={2}
+              fill={`url(#fill-${k.key})`}
+              activeDot={{ r: 4 }}
+            />
+          ))}
+        </RechartsAreaChart>
+      </ResponsiveContainer>
     </div>
   );
 }
@@ -177,15 +215,12 @@ function ExportButton({ reportId, format }: { reportId: string; format: string }
   );
 }
 
-
 const Reports = () => {
-
   const [dateRange, setDateRange] = useState("6M");
   const [activeReport, setActiveReport] = useState("users");
 
   return (
     <div className="space-y-6">
-
       {/* Header */}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
@@ -279,14 +314,14 @@ const Reports = () => {
                 <ExportButton reportId="users" format="PDF" />
               </div>
             </div>
-            <BarChart
+            <AreaChart
               data={userReport}
               keys={[
-                { key: "signups", color: "bg-primary", label: "Signups" },
-                { key: "active", color: "bg-success", label: "Active" },
-                { key: "churned", color: "bg-danger", label: "Churned" },
+                { key: "signups", color: "#7c3aed", label: "Signups" },
+                { key: "active", color: "#10b981", label: "Active" },
+                { key: "churned", color: "#ef4444", label: "Churned" },
               ]}
-              height={160}
+              height={220}
             />
           </div>
 
@@ -340,14 +375,14 @@ const Reports = () => {
                 <ExportButton reportId="revenue" format="PDF" />
               </div>
             </div>
-            <BarChart
+            <AreaChart
               data={revenueReport}
               keys={[
-                { key: "revenue", color: "bg-success", label: "Revenue" },
-                { key: "refunds", color: "bg-danger", label: "Refunds" },
-                { key: "net", color: "bg-primary", label: "Net" },
+                { key: "revenue", color: "#10b981", label: "Revenue" },
+                { key: "refunds", color: "#ef4444", label: "Refunds" },
+                { key: "net", color: "#7c3aed", label: "Net" },
               ]}
-              height={160}
+              height={220}
             />
           </div>
 
@@ -410,14 +445,14 @@ const Reports = () => {
                 <ExportButton reportId="tasks" format="PDF" />
               </div>
             </div>
-            <BarChart
+            <AreaChart
               data={taskReport}
               keys={[
-                { key: "created", color: "bg-blue-400", label: "Created" },
-                { key: "completed", color: "bg-success", label: "Completed" },
-                { key: "overdue", color: "bg-danger", label: "Overdue" },
+                { key: "created", color: "#60a5fa", label: "Created" },
+                { key: "completed", color: "#10b981", label: "Completed" },
+                { key: "overdue", color: "#ef4444", label: "Overdue" },
               ]}
-              height={160}
+              height={220}
             />
           </div>
 
@@ -477,7 +512,7 @@ const Reports = () => {
               </div>
               <ExportButton reportId="subscriptions" format="CSV" />
             </div>
-            <BarChart
+            <AreaChart
               data={[
                 { month: "Jan", new: 18, cancelled: 2, mrr: 4200 / 19 },
                 { month: "Feb", new: 24, cancelled: 3, mrr: 5100 / 19 },
@@ -487,10 +522,10 @@ const Reports = () => {
                 { month: "Jun", new: 46, cancelled: 6, mrr: 9240 / 19 },
               ]}
               keys={[
-                { key: "new", color: "bg-primary", label: "New Pro" },
-                { key: "cancelled", color: "bg-danger", label: "Cancelled" },
+                { key: "new", color: "#7c3aed", label: "New Pro" },
+                { key: "cancelled", color: "#ef4444", label: "Cancelled" },
               ]}
-              height={160}
+              height={220}
             />
           </div>
 
@@ -536,9 +571,8 @@ const Reports = () => {
           })}
         </div>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Reports
+export default Reports;
