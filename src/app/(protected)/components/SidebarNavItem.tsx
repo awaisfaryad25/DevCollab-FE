@@ -32,7 +32,7 @@ const SidebarNavItem = ({ item, isActive, isCollapsed, isMobile }: SidebarNavIte
         collapsed && "justify-center px-0",
         isActive
           ? "border-l-2 border-primary! bg-primary/8 font-medium text-primary"
-          : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+          : "text-muted-foreground hover:bg-accen hover:text-primary hover:border-l-2 hover:border-primary!"
       )}
     >
       <Icon className={cn("size-4", collapsed && "size-4.5")} />
