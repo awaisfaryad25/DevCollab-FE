@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Eye, EyeOff, Loader2, CheckCircle2, Lock } from "lucide-react";
 import BackgroundGradient from "@/app/ui/background-gradient";
 import Input from "@/app/ui/Input";
+import MainLogo from "../../components/MainLogo";
 
 export default function ResetPasswordPage() {
   const [show, setShow] = useState(false);
@@ -28,9 +29,12 @@ export default function ResetPasswordPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center">
+    <div className="min-h-screen px-4 py-6">
+      <div className="w-full max-w-7xl mx-auto">
+        <MainLogo/>
+      </div>
       <BackgroundGradient/>
-      <div className="p-4 w-full max-w-sm">
+      <div className="p-4 w-full max-w-sm mx-auto mt-6 lg:mt-20">
         {!done ? (
           <>
             <div className="mb-4">
