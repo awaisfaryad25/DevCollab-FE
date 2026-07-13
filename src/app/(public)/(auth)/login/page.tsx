@@ -7,6 +7,7 @@ import { FcGoogle } from "react-icons/fc";
 import { cn } from "@/lib/utils";
 import BackgroundGradient from "@/app/ui/background-gradient";
 import Input from "@/app/ui/Input";
+import MainLogo from "../../components/MainLogo";
 
 export default function LoginPage() {
   const [show, setShow] = useState(false);
@@ -27,10 +28,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center">
+    <div className="relative min-h-screen px-4 py-6">
+      <div className="w-full max-w-7xl mx-auto">
+        <MainLogo/>
+      </div>
       <BackgroundGradient />
       {/* Card */}
-      <div className="p-4 w-full max-w-sm mx-auto">
+      <div className="p-4 w-full max-w-sm mx-auto mt-6 lg:mt-20">
         <div className="mb-4 ">
           <h1 className="text-2xl lg:text-3xl font-semibold">
             Welcome back!
