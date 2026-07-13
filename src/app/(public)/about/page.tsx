@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Users, Zap, ShieldCheck } from "lucide-react";
 import Team from '../components/Team'
+// import SpotlightGrid from "@/app/ui/spot-light-grid";
 // import NeumorphicInputs from "@/app/ui/NeumorphicInputs";
 // import ClockDisplay from "@/app/ui/clock/ClockDisplay";
 
@@ -114,7 +115,7 @@ export default function AboutPage() {
         </Link>
       </section>
 
-
+      {/* <SpotlightGrid count={78} /> */}
       {/* <NeumorphicInputs/> */}
       {/* <ClockDisplay /> */}
     </main>
