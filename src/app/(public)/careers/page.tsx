@@ -1,27 +1,90 @@
 import Link from "next/link";
-import { ArrowRight, MapPin, Clock } from "lucide-react";
+import { MapPin, Clock } from "lucide-react";
 
 const roles = [
   {
+    status: "active",
+    createdAt: "2024-06-05T12:00:00Z",
     title: "Senior Full-Stack Engineer",
-    team: "Engineering",
-    type: "Full-time",
+    type: "FULL_TIME",
+    salary: {
+      from: 120000,
+      to: 150000,
+      currency: "USD"
+    },
     location: "Remote",
-    href: "/careers/senior-fullstack",
+    team: "Engineering",
+    id: 1,
   },
   {
+    status: "active",
+    createdAt: "2024-06-03T10:30:00Z",
     title: "Product Designer",
     team: "Design",
-    type: "Full-time",
+    type: "FULL_TIME",
+    salary: {
+      from: 100000,
+      to: 130000,
+      currency: "USD"
+    },
     location: "Remote",
-    href: "/careers/product-designer",
+    id: 2,
   },
   {
+    status: "closed",
+    createdAt: "2024-05-28T09:15:00Z",
     title: "DevOps Engineer",
     team: "Infrastructure",
-    type: "Full-time",
+    type: "FULL_TIME",
+    salary: {
+      from: 130000,
+      to: 160000,
+      currency: "USD"
+    },
     location: "Remote",
-    href: "/careers/devops",
+    id: 3,
+  },
+  {
+    status: "active",
+    createdAt: "2024-06-01T14:45:00Z",
+    title: "Frontend Developer",
+    team: "Engineering",
+    type: "CONTRACT",
+    salary: {
+      from: 80000,
+      to: 100000,
+      currency: "USD"
+    },
+    location: "Remote",
+    id: 4,
+  },
+  {
+    status: "active",
+    createdAt: "2024-05-30T11:20:00Z",
+    title: "Data Scientist",
+    team: "Data",
+    type: "FULL_TIME",
+    salary: {
+      from: 110000,
+      to: 140000,
+      currency: "USD"
+    },
+    location: "Remote",
+    id: 5,
+  },
+  {
+    status: "closed",
+    createdAt: "2024-05-25T08:00:00Z",
+    title: "Mobile Developer",
+    team: "Engineering",
+    type: "FULL_TIME",
+    salary: {
+      from: 95000,
+      to: 120000,
+      currency: "USD"
+    },
+    location: "Remote",
+    id: 6,
   },
 ];
 
@@ -35,6 +98,43 @@ const perks = [
 ];
 
 export default function CareersPage() {
+  // Format salary range
+  const formatSalary = (from: number, to: number, currency: string) => {
+    const formatNumber = (num: number) => {
+      if (num >= 1000) {
+        return (num / 1000).toFixed(0) + "K";
+      }
+      return num.toString();
+    };
+    return `${formatNumber(from)}${formatNumber(to) !== formatNumber(from) ? ` - ${formatNumber(to)}` : ""} ${currency}`;
+  };
+
+  // Format time ago
+  const getTimeAgo = (createdAt: string) => {
+    const now = new Date();
+    const diffInHours = Math.floor(
+      (now.getTime() - new Date(createdAt).getTime()) / (1000 * 60 * 60)
+    );
+    
+    if (diffInHours < 1) return "Just now";
+    if (diffInHours === 1) return "1hr ago";
+    if (diffInHours < 24) return `${diffInHours}hrs ago`;
+    const diffInDays = Math.floor(diffInHours / 24);
+    return `${diffInDays}d ago`;
+  };
+
+  // Format job type display
+  const formatJobType = (type: string) => {
+    return type.split("_").map(word => 
+      word.charAt(0) + word.slice(1).toLowerCase()
+    ).join(" ");
+  };
+
+  // Check if job is active
+  const isJobActive = (status: string): boolean => {
+    return status === "active";
+  };
+
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
@@ -48,14 +148,14 @@ export default function CareersPage() {
           </h1>
           <p className="mt-4 text-base text-muted-foreground">
             We're a small, fully remote team on a mission to make software teams
-            10× more effective. If that sounds like your kind of problem, read on.
+            10x more effective. If that sounds like your kind of problem, read on.
           </p>
         </div>
       </section>
 
       {/* Perks */}
       <section className="px-4 py-20">
-        <div className="w-full max-w-11/12 md:max-w-10/13 mx-auto">
+        <div className="w-full max-w-7xl mx-auto">
           <h2 className="mb-8 text-2xl font-semibold text-foreground">Why DevCollab</h2>
           <ul className="grid gap-3 sm:grid-cols-2">
             {perks.map((perk) => (
@@ -68,38 +168,71 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Open roles */}
+      {/* Open roles - Redesigned to match CareersJobs component */}
       <section className="border-t border-border bg-muted/40 px-4 py-20">
-        <div className="w-full max-w-11/12 md:max-w-10/13 mx-auto">
-          <h2 className="mb-8 text-2xl font-semibold text-foreground">Open roles</h2>
-          <div className="space-y-4">
+        <div className="w-full max-w-7xl mx-auto">
+          <h2 className="mb-12 text-2xl font-semibold text-foreground text-center">
+            We're Growing — Join Us
+          </h2>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {roles.map((role) => (
-              <Link
-                key={role.title}
-                href={role.href}
-                className="group flex items-center justify-between rounded-xl border border-border bg-background p-5 transition-shadow hover:shadow-md"
+              <div
+                key={role.id}
+                className="bg-card dark:bg-card-foreground rounded-xl space-y-2 p-4 lg:px-6 lg:py-7 shadow-sm shadow-primary/40 hover:shadow-md transition-shadow"
               >
-                <div>
-                  <p className="text-sm font-semibold text-foreground group-hover:text-secondary">
-                    {role.title}
-                  </p>
-                  <div className="mt-1.5 flex items-center gap-3 text-xs text-muted-foreground">
-                    <span className="rounded-full bg-violet-50 px-2 py-0.5 text-secondary">
-                      {role.team}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="h-3 w-3" /> {role.type}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <MapPin className="h-3 w-3" /> {role.location}
-                    </span>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <h3 className={`font-medium ${isJobActive(role.status) ? "text-cyan-blue" : "text-muted-text"}`}>
+                    {isJobActive(role.status) ? "Open Role" : "Closed Role"}
+                  </h3>
+
+                  <span className="ml-2 size-1.5 rounded-full bg-cyan-blue" />
+                  <span className="text-muted-text text-sm">{getTimeAgo(role.createdAt)}</span>
                 </div>
-                <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-secondary" />
-              </Link>
+
+                <h2 className="text-base 2xl:text-lg 4xl:text-xl text-dark-gray font-medium">
+                  {role.title}
+                </h2>
+
+                <div className="flex items-center gap-2 text-[12px] 2xl:text-[14px] flex-wrap">
+                  <h3 className="text-slate-gray">
+                    {formatJobType(role.type)}
+                  </h3>
+
+                  <span className="flex items-center gap-1">
+                    <span className="size-1.5 rounded-full bg-cyan-blue" />
+                    <span className="text-slate-gray">
+                      {formatSalary(
+                        role.salary.from,
+                        role.salary.to,
+                        role.salary.currency
+                      )}
+                    </span>
+                  </span>
+
+                  <span className="flex items-center gap-1">
+                    <MapPin size={16} className="text-cyan-blue" />
+                    <span className="text-slate-gray">{role.location}</span>
+                  </span>
+                </div>
+
+                {isJobActive(role.status) ? (
+                  <Link
+                    href={`/careers/${role.id}`}
+                    className="text-cyan-blue text-sm 2xl:text-base font-semibold hover:underline mt-3 inline-block"
+                  >
+                    View & Apply
+                  </Link>
+                ) : (
+                  <h3 className="text-muted-text font-semibold">
+                    Position Filled
+                  </h3>
+                )}
+              </div>
             ))}
           </div>
-          <p className="mt-8 text-sm text-muted-foreground">
+
+          <p className="mt-12 text-sm text-muted-foreground text-center">
             Don't see your role?{" "}
             <Link href="/contact" className="text-secondary hover:underline">
               Send us a message
