@@ -140,7 +140,7 @@ export default function CareersPage() {
       {/* Header */}
       <section className="border-b border-border bg-muted/40 px-4 py-20 text-center">
         <div className="mx-auto max-w-2xl">
-          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-secondary">
+          <span className="mb-3 inline-block text-xs font-semibold uppercase tracking-widest text-primary">
             Careers
           </span>
           <h1 className="text-4xl font-semibold tracking-tight text-foreground">
@@ -160,7 +160,7 @@ export default function CareersPage() {
           <ul className="grid gap-3 sm:grid-cols-2">
             {perks.map((perk) => (
               <li key={perk} className="flex items-center gap-3 text-sm text-foreground">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-violet-100 text-secondary text-xs">✓</span>
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-warning text-">✓</span>
                 {perk}
               </li>
             ))}

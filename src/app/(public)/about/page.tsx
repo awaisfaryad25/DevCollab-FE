@@ -69,7 +69,7 @@ export default function AboutPage() {
           <div className="grid gap-8 md:grid-cols-3">
             {values.map(({ icon: Icon, title, desc }) => (
               <div key={title}>
-                <div className="mb-3 inline-flex rounded-lg bg-violet-50 p-2.5">
+                <div className="mb-3 inline-flex rounded-lg bg-primary/10 p-2.5">
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
                 <h3 className="mb-2 text-sm font-semibold text-foreground">{title}</h3>
@@ -109,7 +109,7 @@ export default function AboutPage() {
         </p>
         <Link
           href="/careers"
-          className="mt-6 inline-flex items-center gap-2 rounded-lg bg-secondary px-5 py-2.5 text-sm font-medium text-white hover:bg-secondary/90"
+          className="gradient mt-6 inline-flex items-center gap-2 rounded-lg bg-secondary px-5 py-2.5 text-sm font-medium text-white"
         >
           See open roles <ArrowRight className="h-4 w-4" />
         </Link>
