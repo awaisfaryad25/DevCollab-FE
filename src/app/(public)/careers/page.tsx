@@ -169,7 +169,7 @@ export default function CareersPage() {
       </section>
 
       {/* Open roles - Redesigned to match CareersJobs component */}
-      <section className="border-t border-border bg-muted/40 px-4 py-20">
+      <section className="border-t border-border bg-muted/40 px-4 py-12">
         <div className="w-full max-w-7xl mx-auto">
           <h2 className="mb-12 text-2xl font-semibold text-foreground text-center">
             We're Growing — Join Us
@@ -231,15 +231,19 @@ export default function CareersPage() {
               </div>
             ))}
           </div>
-
-          <p className="mt-12 text-sm text-muted-foreground text-center">
-            Don't see your role?{" "}
-            <Link href="/contact" className="text-secondary hover:underline">
-              Send us a message
-            </Link>{" "}
-            — we're always interested in exceptional people.
-          </p>
         </div>
+      </section>
+      {/* Submit resume */}
+      <section className="font-dm-sans flex flex-col items-center justify-center gap-6 py-10 lg:py-12 mb-6 lg:mb-10">
+        <h2 className="text-center text-xl lg:text-2xl 2xl:text-3xl 4xl:text-4xl font-medium text-dark-gray tracking-tight">
+           Couldn&apos;t find your role?
+        </h2>
+          <Link
+            href="/careers-submit-resume"
+            className="gradient text-white px-6 py-2 rounded-lg text-xs 2xl:text-base mt-4 cursor-pointer"
+          >
+            Send your Resume
+          </Link>
       </section>
     </main>
   );
