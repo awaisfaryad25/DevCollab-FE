@@ -4,6 +4,7 @@ import Input from '@/app/ui/Input';
 import { ArrowRight, User } from 'lucide-react';
 import React, { useState } from 'react'
 import FileUpload  from '@/app/ui/FileUpload';
+import ResumeSubmitted from '../components/career/ResumeSubmitted';
 
 const SubmitResume = () => {
 
@@ -26,8 +27,8 @@ const SubmitResume = () => {
   };
   
   return (
-    <div>
-            <div className="font-dm-sans relative w-full max-w-7xl mx-auto px-6 md:px-8 xl:px-0">
+    <>
+      <div className="font-dm-sans relative w-full max-w-7xl mx-auto px-6 md:px-8 xl:px-0">
         {/* Upload Resume Section - Only show if not submitted */}
         {!showSubmitted && (
           <div className="py-8 lg:py-16">
@@ -41,22 +42,22 @@ const SubmitResume = () => {
               <span>Submitted</span>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 mt-8 lg:mt-20">
-              <div className="lg:col-span-2 max-w-md">
+            <div className="grid grid-cols-1 lg:grid-cols-7 gap-4 mt-8 lg:mt-20">
+              <div className="lg:col-span-3 max-w-md">
                 <h2 className="text-xl lg:text-3xl 2xl:text-4xl 4xl:text-[44px] lg:leading-11 2xl:leading-13 4xl:leading-16 font-medium">
                   Invest in your Career, <br/> Grow with Dev Collab
                 </h2>
               </div>
 
               {/* Form Section */}
-              <div className="lg:col-span-3">
+              <div className="lg:col-span-4">
                 <form className="flex flex-col gap-6">
                   {/* Display submit error if any */}
                   <div className="grid grid-cols-1 sm:grid-cols-2  gap-4">
-                    <Input label="First Name" type="text" placeholder="Awais" required />
-                    <Input label="Last Name" type="text" placeholder="Faryad" required />
-                    <Input label="Email" type="email" placeholder="you@example.com" required />
-                    <Input label="Phone Number" type="tel" placeholder="123-456-7890" required />
+                    <Input label="First Name" type="text" placeholder="Awais" required className='shadow shadow-primary/40 border-0'/>
+                    <Input label="Last Name" type="text" placeholder="Faryad" required className='shadow shadow-primary/40 border-0'/>
+                    <Input label="Email" type="email" placeholder="you@example.com" required className='shadow shadow-primary/40 border-0' />
+                    <Input label="Phone Number" type="tel" placeholder="123-456-7890" required className='shadow shadow-primary/40 border-0' />
                   </div>
 
                   {/* Resume Upload Section */}
@@ -83,13 +84,12 @@ const SubmitResume = () => {
             </div>
           </div>
         )}
-
-        {/* {showSubmitted && (
+        {showSubmitted && (
           <ResumeSubmitted/>
-        )} */}
+        )}
 
       </div>
-    </div>
+    </>
   )
 }
 
