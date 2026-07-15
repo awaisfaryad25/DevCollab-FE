@@ -120,8 +120,8 @@ const FileUpload  = ({
               </span>{' '}
               or drag and drop
             </p>
-            <p className="text-xs text-text/60">
-              {accept.replaceAll('.', '').toUpperCase().split(',').join(', ')} up to {maxSizeMB}MB
+            <p className="text-xs text-text/80">
+              {accept.replaceAll('.', '').toUpperCase().split(',').join(', ')} <span>({maxSizeMB}MB max) </span> 
             </p>
           </>
         ) : (
@@ -142,7 +142,7 @@ const FileUpload  = ({
         )}
       </div>
 
-      {displayError && <p className="text-xs text-danger">{displayError}</p>}
+      {displayError && <span className="text-xs text-danger">{displayError}</span>}
     </div>
   )
 }

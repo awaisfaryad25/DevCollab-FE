@@ -1,7 +1,7 @@
 'use client'
 
 import Input from '@/app/ui/Input';
-import { ArrowRight, User } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import React, { useState } from 'react'
 import FileUpload  from '@/app/ui/FileUpload';
 import ResumeSubmitted from '../components/career/ResumeSubmitted';
@@ -52,7 +52,6 @@ const SubmitResume = () => {
               {/* Form Section */}
               <div className="lg:col-span-4">
                 <form className="flex flex-col gap-6">
-                  {/* Display submit error if any */}
                   <div className="grid grid-cols-1 sm:grid-cols-2  gap-4">
                     <Input label="First Name" type="text" placeholder="Awais" required className='shadow shadow-primary/40 border-0'/>
                     <Input label="Last Name" type="text" placeholder="Faryad" required className='shadow shadow-primary/40 border-0'/>
@@ -60,7 +59,6 @@ const SubmitResume = () => {
                     <Input label="Phone Number" type="tel" placeholder="123-456-7890" required className='shadow shadow-primary/40 border-0' />
                   </div>
 
-                  {/* Resume Upload Section */}
                   <FileUpload 
                     label="Upload Resume"
                     accept=".pdf,.doc,.docx"
@@ -68,7 +66,6 @@ const SubmitResume = () => {
                     error={resumeError}
                     onFileSelect={setResumeFile}
                   />
-                  
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <button
@@ -84,6 +81,7 @@ const SubmitResume = () => {
             </div>
           </div>
         )}
+
         {showSubmitted && (
           <ResumeSubmitted/>
         )}
