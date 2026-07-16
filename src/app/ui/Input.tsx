@@ -91,26 +91,17 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         {/* Error message */}
         {error && (
-          <p
-            id={`${inputId}-error`}
-            className="flex items-center gap-1 text-xs text-danger"
-            role="alert"
-          >
+          <p id={`${inputId}-error`} className="flex items-center gap-1 text-xs text-danger" role="alert">
             {error}
           </p>
         )}
 
         {/* Hint text */}
-        {!error && hint && (
-          <p id={`${inputId}-hint`} className="text-xs">
-            {hint}
-          </p>
-        )}
+        {!error && hint && (<p id={`${inputId}-hint`} className="text-xs">{hint}</p>)}
       </div>
     );
   }
 );
 
 // Input.displayName = "Input";
-
 export default Input;

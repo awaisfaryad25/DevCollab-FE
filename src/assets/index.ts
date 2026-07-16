@@ -1,6 +1,9 @@
 export { default as Logo1 } from "./logo/dc.svg";
 export { default as Logo } from "./logo/LogoDC.svg";
 
+// Profile Page Img
+export { default as profile } from "./profile/awais.jpg";
+
 // Team Member Img
 export { default as Founder } from "./team/founder.jpg";
 export { default as BackendEngineer } from "./team/BackendEngineer.jpg";
