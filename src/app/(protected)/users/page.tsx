@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Download } from "lucide-react";
-import Button from "@/app/ui/Button";
+import {Button} from "@/app/ui/Button";
 import TanStackDataTable from "@/app/(protected)/components/tanstack-data-table";
 import AppDataTable from "@/app/(protected)/components/app-data-table";
 import { tanstackUserColumns, rdtUserColumns, } from "./components/column";
@@ -54,17 +54,16 @@ const Users = () => {
       {/* Library toggle — using the same reusable Button, pill variant */}
       <div className="flex items-center gap-2">
         <Button
-          variant="pill"
+          // variant="pill"
           size="sm"
-          active={activeLib === "tanstack"}
+          // active={activeLib === "tanstack"}
           onClick={() => setActiveLib("tanstack")}
         >
           TanStack Table
         </Button>
         <Button
-          variant="pill"
           size="sm"
-          active={activeLib === "rdt"}
+          // active={activeLib === "rdt"}
           onClick={() => setActiveLib("rdt")}
         >
           react-data-table-component

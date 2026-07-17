@@ -13,7 +13,7 @@ import {
 } from "@tanstack/react-table";
 import { ArrowUpDown, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
 import Skeleton from "@/app/ui/Skeleton";
-import Button from "@/app/ui/Button";
+import {Button} from "@/app/ui/Button";
 
 interface TanStackDataTableProps<T> {
   data: T[];
@@ -116,16 +116,16 @@ function TanStackDataTable<T>({
           Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
         </span>
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon" className="size-8" onClick={() => table.setPageIndex(0)} disabled={!table.getCanPreviousPage()}>
+          <Button variant="ghost" className="size-8" onClick={() => table.setPageIndex(0)} disabled={!table.getCanPreviousPage()}>
             <ChevronsLeft className="size-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="size-8" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
+          <Button variant="ghost" className="size-8" onClick={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
             <ChevronLeft className="size-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="size-8" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+          <Button variant="ghost" className="size-8" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
             <ChevronRight className="size-4" />
           </Button>
-          <Button variant="ghost" size="icon" className="size-8" onClick={() => table.setPageIndex(table.getPageCount() - 1)} disabled={!table.getCanNextPage()}>
+          <Button variant="ghost" className="size-8" onClick={() => table.setPageIndex(table.getPageCount() - 1)} disabled={!table.getCanNextPage()}>
             <ChevronsRight className="size-4" />
           </Button>
         </div>
