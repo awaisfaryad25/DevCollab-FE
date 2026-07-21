@@ -1,12 +1,13 @@
 import React from 'react'
 import { Button } from "@/app/ui/Button";
 import { ArrowRight, Plus } from 'lucide-react';
+import { Tooltip } from '@/app/ui/Tooltip';
 
 const Demo = () => {
   return (
-    <div className='p-6 w-full max-w-7xl mx-auto'>
-      <h2 className='text-primary font-semibold'>Buttons</h2>
+    <div className='p-6 w-full max-w-7xl mx-auto space-y-6'>
       <hr />
+      <h2 className='text-primary font-semibold'>Buttons</h2>
       <div className="space-y-6 mt-6">
 
         {/*  variants */}
@@ -43,11 +44,26 @@ const Demo = () => {
           <Button loading>Saving...</Button>
           <Button fullWidth>Full Width</Button>
         </div>
-        
-        <div className="flex flex-wrap gap-6">
-          {/* <h2 className='text-primary font-semibold'>Button </h2> */}
+      
+      </div>
 
-        </div>
+      <hr />
+
+      <h2 className='text-primary font-semibold'>Tooltip </h2>
+      <div className="flex flex-wrap gap-6">
+        <Tooltip content="Copy to clipboard" position="top">
+          <button>Copy</button>
+        </Tooltip>
+
+        <Tooltip content="Admin only action" position="right" delay={100}>
+          <Button variant="danger">Delete all</Button>
+        </Tooltip>
+      </div>
+
+      <hr />
+      {/* <h2 className='text-primary font-semibold'>Button </h2> */}
+      <div className="flex flex-wrap gap-6">
+
       </div>
 
 
