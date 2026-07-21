@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from "@/app/ui/Button";
 import { ArrowRight, Plus } from 'lucide-react';
 import { Tooltip } from '@/app/ui/Tooltip';
+import { AvatarUpload, ImageUpload } from '@/app/ui/ImageUpload';
 
 const Demo = () => {
   return (
@@ -61,11 +62,30 @@ const Demo = () => {
       </div>
 
       <hr />
+      <h2 className='text-primary font-semibold'>Image Upload design </h2>
+      <div className="flex flex-wrap gap-6">
+        <AvatarUpload
+          initials="AF"
+          // value={avatarUrl}
+          // onChange={(file) => uploadToCloudinary(file)}
+          // onRemove={() => setAvatarUrl(null)}
+          size="lg"  // sm | md | lg
+        />
+        <ImageUpload
+          label="Project cover"
+          // value={image}
+          // onChange={(file) => setImage(file)}
+          // onRemove={() => setImage(null)}
+          maxSizeMB={2}
+          hint="PNG or JPG up to 2MB"
+          error="Image is required"
+        />
+      </div>
+
       {/* <h2 className='text-primary font-semibold'>Button </h2> */}
       <div className="flex flex-wrap gap-6">
 
       </div>
-
 
     </div>
   )
