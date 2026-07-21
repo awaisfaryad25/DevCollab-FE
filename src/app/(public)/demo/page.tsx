@@ -1,10 +1,16 @@
-import React from 'react'
+'use client'
+import React, { useState } from 'react'
 import { Button } from "@/app/ui/Button";
 import { ArrowRight, Plus } from 'lucide-react';
 import { Tooltip } from '@/app/ui/Tooltip';
 import { AvatarUpload, ImageUpload } from '@/app/ui/ImageUpload';
+import { Checkbox, RadioGroup } from './RadioCheckbox';
 
 const Demo = () => {
+
+  const [checked, setChecked] = useState();
+  const [role, setRole] = useState("abc");
+
   return (
     <div className='p-6 w-full max-w-7xl mx-auto space-y-6'>
       <hr />
@@ -82,11 +88,29 @@ const Demo = () => {
         />
       </div>
 
+      <h2 className='text-primary font-semibold'> RadioG, Checkbox Input</h2>
+      <div className="flex flex-wrap gap-6">
+        <RadioGroup
+          name="role"
+          label="Select role"
+          value={role}
+          onChange={setRole}
+          orientation="vertical"  // or "horizontal"
+          options={[
+            { label: "User", value: "user", hint: "Standard access" },
+            { label: "Admin", value: "admin", hint: "Full access" },
+          ]}
+        />
+
+        <Checkbox label="Remember me" checked={checked} onChange={e => setChecked(checked)} />
+        <Checkbox label="Select all" indeterminate />  // for table select-all
+        <Checkbox label="I agree to terms" error="You must accept terms" />
+      </div>
+
       {/* <h2 className='text-primary font-semibold'>Button </h2> */}
       <div className="flex flex-wrap gap-6">
 
       </div>
-
     </div>
   )
 }
