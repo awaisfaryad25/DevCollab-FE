@@ -167,7 +167,7 @@ const Demo = () => {
         <div className="grid gap-4 sm:grid-cols-2">
           {/* Auth variant */}
           <Input
-            variant="auth"
+            // variant="auth"
             label="Email address"
             type="email"
             placeholder="you@example.com"
@@ -181,7 +181,7 @@ const Demo = () => {
 
           {/* Password with toggle */}
           <Input
-            variant="auth"
+            // variant="auth"
             label="Password"
             type={showPassword ? "text" : "password"}
             placeholder="••••••••"
@@ -196,7 +196,7 @@ const Demo = () => {
 
           {/* Dashboard variant */}
           <Input
-            variant="default"
+            // variant="default"
             label="Search users"
             placeholder="Search by name or email..."
             leftIcon={<Search className="h-4 w-4" />}
