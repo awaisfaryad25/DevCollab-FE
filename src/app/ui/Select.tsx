@@ -55,12 +55,8 @@ const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
     const selectId = id ?? React.useId();
 
     const triggerVariant = {
-      default: error
-        ? "border-danger focus:ring-danger/30"
-        : "border-border focus:ring-ring/30",
-      auth: error
-        ? "border-danger focus:ring-danger/30"
-        : "border-primary focus:ring-primary/30",
+      default: error ? "border-danger focus:ring-danger/30" : "border-border focus:ring-ring/30",
+      auth: error ? "border-danger focus:ring-danger/30" : "border-primary focus:ring-primary/30",
     }[variant];
 
     return (
@@ -88,7 +84,7 @@ const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
               "flex w-full items-center justify-between rounded-lg border bg-background px-3 py-2.5",
               "text-sm text-foreground outline-none transition-colors",
               "focus:outline-none focus:ring-2",
-              "data-[placeholder]:text-muted-foreground",
+              "data-placeholder:text-muted-foreground",
               "disabled:cursor-not-allowed disabled:opacity-50",
               triggerVariant,
               className
@@ -105,7 +101,7 @@ const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
               position="popper"
               sideOffset={6}
               className={cn(
-                "relative z-50 max-h-72 min-w-[var(--radix-select-trigger-width)] overflow-hidden",
+                "relative z-50 max-h-72 min-w-(--radix-select-trigger-width) overflow-hidden",
                 "rounded-lg border border-border bg-popover text-popover-foreground shadow-lg",
                 "data-[state=open]:animate-in data-[state=closed]:animate-out",
                 "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
@@ -123,7 +119,7 @@ const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
                       "relative flex w-full cursor-pointer select-none items-center rounded-md py-2 pl-8 pr-3 text-sm outline-none",
                       "focus:bg-accent focus:text-accent-foreground",
                       "data-[state=checked]:font-medium",
-                      "data-[disabled]:pointer-events-none data-[disabled]:opacity-50"
+                      "data-disabled:pointer-events-none data-disabled:opacity-50"
                     )}
                   >
                     <span className="absolute left-2.5 flex h-4 w-4 items-center justify-center">
