@@ -10,6 +10,19 @@ import { Tooltip } from "@/app/ui/Tooltip";
 import { AvatarUpload, ImageUpload } from "@/app/ui/ImageUpload";
 import { Checkbox, RadioGroup } from "@/app/ui/RadioCheckbox";
 import { ArrowRight, Plus, Mail, Lock, Search, Eye, EyeOff, User, } from "lucide-react";
+import SearchableDropdown from "@/app/ui/SearchableDropdown";
+
+
+const SERVICES = [
+  'Engineering Studies',
+  'Process Safety',
+  'Risk Engineering',
+  'Control of Work',
+  'Digital Safety and AI',
+  'Training Academy',
+  'General Consultation',
+  'Other',
+]
 
 // ─── SECTION WRAPPER ──────────────────────────────────────────────────────────
 
@@ -246,6 +259,18 @@ const Demo = () => {
         </div>
       </Section>
 
+      <Section title="Searchable Dropdown">
+        <div className="grid gap-4 sm:grid-cols-2">
+          <SearchableDropdown
+            id="service"
+            name="service"
+            label="Service Required"
+            placeholder="Select the required service"
+            options={SERVICES}
+          />
+        </div>
+      </Section>
+        
       {/* ── TEXTAREA ── */}
       <Section title="Textarea">
         <div className="grid gap-4 sm:grid-cols-2">
