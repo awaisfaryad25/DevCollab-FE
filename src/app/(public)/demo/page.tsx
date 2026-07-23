@@ -9,10 +9,7 @@ import { Textarea } from "@/app/ui/Textarea";
 import { Tooltip } from "@/app/ui/Tooltip";
 import { AvatarUpload, ImageUpload } from "@/app/ui/ImageUpload";
 import { Checkbox, RadioGroup } from "@/app/ui/RadioCheckbox";
-import {
-  ArrowRight, Plus, Mail, Lock, Search,
-  Eye, EyeOff, User,
-} from "lucide-react";
+import { ArrowRight, Plus, Mail, Lock, Search, Eye, EyeOff, User, } from "lucide-react";
 
 // ─── SECTION WRAPPER ──────────────────────────────────────────────────────────
 
