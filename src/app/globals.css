@@ -40,6 +40,8 @@
   --color-warning: var(--warning);
   --color-danger: var(--danger);
 
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
   
 }
 
@@ -50,6 +52,9 @@
   --primary-rgb: 14, 165, 233;
   --secondary-rgb: 1, 0, 102;
   --gradient: linear-gradient(90deg, #0EA5E9, #010066);
+
+  --popover: #ffffff;
+  --popover-foreground: #0F172B;
 
   /* Text Colors */
   --heading: #333333;

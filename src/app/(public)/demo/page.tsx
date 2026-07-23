@@ -233,7 +233,7 @@ const Demo = () => {
             label="Subscription plan"
             placeholder="Choose a plan"
             value={plan}
-            onChange={(e) => setPlan(e.target.value)}
+            onValueChange={(value) => setPlan(value)}
             options={[
               { label: "Free", value: "free" },
               { label: "Pro — $19/mo", value: "pro" },
@@ -246,7 +246,7 @@ const Demo = () => {
             label="User role"
             placeholder="Select role"
             value={role}
-            onChange={(e) => setRole(e.target.value)}
+            onValueChange={(value) => setRole(value)}
             variant="auth"
             options={[
               { label: "User", value: "user" },
@@ -259,6 +259,7 @@ const Demo = () => {
         </div>
       </Section>
 
+      {/* ── Searchable Dropdown ── */}
       <Section title="Searchable Dropdown">
         <div className="grid gap-4 sm:grid-cols-2">
           <SearchableDropdown
